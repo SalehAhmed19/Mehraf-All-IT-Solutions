@@ -10,9 +10,10 @@ const Banner = () => {
         <div>
           <h1 className="text-5xl font-bold">Mehraf All IT Sollutions</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illum
+            vel atque maiores fugiat labore dolorum dignissimos sunt debitis.
+            Praesentium impedit repudiandae quae sit dolorem deleniti aut veniam
+            eum aliquam.
           </p>
           <button className="btn btn-dark">Explore Now</button>
         </div>
