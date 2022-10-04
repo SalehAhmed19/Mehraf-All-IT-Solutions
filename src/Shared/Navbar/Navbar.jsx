@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -61,6 +62,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">
           <li>
             <a>Home</a>
+          </li>
+          <li>
+            <Link to="login">login</Link>
           </li>
           <li tabIndex={0}>
             <a>
