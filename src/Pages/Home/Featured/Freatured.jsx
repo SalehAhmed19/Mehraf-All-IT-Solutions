@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Freatured = () => {
   const data = [
@@ -51,7 +52,9 @@ const Freatured = () => {
                     {d.title}
                   </h1>
                   <p className="mb-5">{d.des}</p>
-                  <button className="btn glass">Explore Now</button>
+                  <Link to="" className="btn glass">
+                    Explore Now
+                  </Link>
                 </div>
               </div>
             </div>
