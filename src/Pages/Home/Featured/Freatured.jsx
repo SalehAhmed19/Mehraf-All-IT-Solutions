@@ -6,13 +6,13 @@ const Freatured = () => {
       _id: 1,
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/P5YTP9Z/graphics-design.jpg",
+      img: "https://i.ibb.co/2j241Vs/graphics-design.jpg",
     },
     {
       _id: 2,
       title: "Web Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/nDMczZS/web-design.jpg",
+      img: "https://i.ibb.co/qFt2GgX/web-design.jpg",
     },
     {
       _id: 3,
@@ -24,7 +24,7 @@ const Freatured = () => {
       _id: 4,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/nMg50x1/digital-marketing.jpg",
+      img: "https://i.ibb.co/fMznmGJ/digital-marketing.jpg",
     },
   ];
   return (
@@ -35,20 +35,25 @@ const Freatured = () => {
         </h2>
         <div className="h-1 bg-gray-700 w-36 rounded"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-28">
         {data.map((d) => (
-          <div>
-            <div className="card w-72 h-72 bg-base-100 shadow-xl image-full mx-5">
-              <figure>
-                <img src={d.img} alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title text-white">{d.title}</h2>
-                <p>{d.des}</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary bg-white w-full">
-                    Explore more
-                  </button>
+          <div className="flex justify-center">
+            <div
+              className="hero min-h-screen"
+              style={{
+                backgroundImage: `url(${d.img})`,
+              }}
+            >
+              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-content text-center text-neutral-content">
+                <div className="max-w-md">
+                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <p className="mb-5">
+                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                    assumenda excepturi exercitationem quasi. In deleniti eaque
+                    aut repudiandae et a id nisi.
+                  </p>
+                  <button className="btn btn-primary">Get Started</button>
                 </div>
               </div>
             </div>
