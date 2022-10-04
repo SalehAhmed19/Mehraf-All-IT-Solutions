@@ -6,25 +6,25 @@ const Freatured = () => {
       _id: 1,
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/2j241Vs/graphics-design.jpg",
+      img: "https://i.ibb.co/56jDts6/graphics-design-2.jpg",
     },
     {
       _id: 2,
       title: "Web Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/qFt2GgX/web-design.jpg",
+      img: "https://i.ibb.co/c2gQpDR/web-design-2.jpg",
     },
     {
       _id: 3,
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/54Hgpxk/web-development.jpg",
+      img: "https://i.ibb.co/FD0xVMH/web-development.jpg",
     },
     {
       _id: 4,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/fMznmGJ/digital-marketing.jpg",
+      img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
     },
   ];
   return (
@@ -47,13 +47,11 @@ const Freatured = () => {
               <div className="hero-overlay bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                  <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
-                  </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <h1 className="mb-5 text-5xl font-bold text-white">
+                    {d.title}
+                  </h1>
+                  <p className="mb-5">{d.des}</p>
+                  <button className="btn btn-primary">Explore Now</button>
                 </div>
               </div>
             </div>
