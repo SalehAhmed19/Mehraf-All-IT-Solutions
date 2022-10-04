@@ -6,21 +6,25 @@ const Freatured = () => {
       _id: 1,
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      img: "https://i.ibb.co/P5YTP9Z/graphics-design.jpg",
     },
     {
       _id: 2,
       title: "Web Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      img: "https://i.ibb.co/nDMczZS/web-design.jpg",
     },
     {
       _id: 3,
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      img: "https://i.ibb.co/54Hgpxk/web-development.jpg",
     },
     {
       _id: 4,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      img: "https://i.ibb.co/nMg50x1/digital-marketing.jpg",
     },
   ];
   return (
@@ -36,7 +40,7 @@ const Freatured = () => {
           <div>
             <div className="card w-72 h-72 bg-base-100 shadow-xl image-full mx-5">
               <figure>
-                <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+                <img src={d.img} alt="Shoes" />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-white">{d.title}</h2>
