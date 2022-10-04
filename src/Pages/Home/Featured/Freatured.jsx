@@ -35,7 +35,7 @@ const Freatured = () => {
         </h2>
         <div className="h-1 bg-gray-700 w-36 rounded"></div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-28">
+      <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-5 lg:mx-40">
         {data.map((d) => (
           <div className="flex justify-center">
             <div
@@ -47,11 +47,11 @@ const Freatured = () => {
               <div className="hero-overlay bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold text-white">
+                  <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-white">
                     {d.title}
                   </h1>
                   <p className="mb-5">{d.des}</p>
-                  <button className="btn btn-primary">Explore Now</button>
+                  <button className="btn glass">Explore Now</button>
                 </div>
               </div>
             </div>
