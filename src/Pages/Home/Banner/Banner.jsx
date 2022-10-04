@@ -19,7 +19,7 @@ const Banner = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">Explore with US</button>
+          <button className="btn glass">Explore with US</button>
         </div>
       </div>
     </div>
