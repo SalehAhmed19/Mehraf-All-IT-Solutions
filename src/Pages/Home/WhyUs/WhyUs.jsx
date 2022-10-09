@@ -1,3 +1,11 @@
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import "./WhyUs.css";
 
@@ -34,10 +42,26 @@ const WhyUs = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:mx-10">
         {data.map((d) => (
           <>
-            <div className="p-5 border rounded-md hover-effect">
-              <h2 className="font-bold">ICON</h2>
-              <h3>{d.des}</h3>
-            </div>
+            <Card sx={{ maxWidth: 345 }}>
+              {/* <CardMedia
+                component="img"
+                height="140"
+                image="/static/images/cards/contemplative-reptile.jpg"
+                alt="green iguana"
+              /> */}
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Icon
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {d.des}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </Card>
           </>
         ))}
       </div>
