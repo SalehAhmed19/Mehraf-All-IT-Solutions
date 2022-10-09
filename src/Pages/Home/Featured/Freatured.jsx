@@ -23,6 +23,12 @@ const Freatured = () => {
     },
     {
       _id: 4,
+      title: "Video & Animation",
+      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
+    },
+    {
+      _id: 5,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
