@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo.png";
 
@@ -100,7 +101,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-ghost">Get started</a>
+        {/* <a className="btn btn-ghost">Get started</a> */}
+        <Button variant="contained">Get Started</Button>
       </div>
     </div>
   );
