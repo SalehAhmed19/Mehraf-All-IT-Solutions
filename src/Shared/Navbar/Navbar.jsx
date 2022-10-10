@@ -1,4 +1,7 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import logo from "../../Assets/images/logo.png";
 
 const Navbar = () => {
   return (
@@ -55,12 +58,17 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">MAIS</a>
+        <a className="btn btn-ghost normal-case text-xl">
+          <img className="w-12" src={logo} alt="" />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
             <a>Home</a>
+          </li>
+          <li>
+            <Link to="login">login</Link>
           </li>
           <li tabIndex={0}>
             <a>
@@ -75,7 +83,7 @@ const Navbar = () => {
                 <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </a>
-            <ul className="p-2">
+            <ul className="p-2 text-white">
               <li>
                 <a>Logo Design</a>
               </li>
@@ -93,7 +101,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-ghost">Get started</a>
+        {/* <a className="btn btn-ghost">Get started</a> */}
+        <Button variant="contained">Get Started</Button>
       </div>
     </div>
   );

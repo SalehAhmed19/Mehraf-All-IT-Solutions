@@ -1,20 +1,25 @@
 import React from "react";
 import "./Banner.css";
-import banner from "../../../Assets/images/banner.png";
+import banner from "../../../Assets/images/banner.jpeg";
 
 const Banner = () => {
   return (
-    <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={banner} className="max-w-sm rounded-lg shadow-2xl" alt="" />
-        <div>
-          <h1 className="text-5xl font-bold">Mehraf All IT Sollutions</h1>
-          <p className="py-6">
+    <div
+      className="hero min-h-screen"
+      style={{ backgroundImage: `url(${banner})` }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content text-center text-neutral-content">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-5xl font-bold heading-font text-white">
+            Mehraf All IT Solutions
+          </h1>
+          <p className="mb-5">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-dark">Explore Now</button>
+          <button className="btn glass">Explore with US</button>
         </div>
       </div>
     </div>
