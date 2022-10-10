@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <FloatingWhatsApp
         phoneNumber="+8801758971667"
-        accountName="Saleh Ahmed Mahin"
+        accountName="Mehraf All IT Solutions"
         allowEsc
         allowClickAway
         notification
