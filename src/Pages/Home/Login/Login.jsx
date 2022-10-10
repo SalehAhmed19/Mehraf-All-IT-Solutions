@@ -1,68 +1,79 @@
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Login = () => {
-  //     const navigate = useNavigate();
-  //   const location = useLocation();
+  const navigate = useNavigate();
+  // const location = useLocation();
 
-  //   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-  //   const [signInWithEmailAndPassword, emailuser, emailloading, emailerror] =
-  //     useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, emailuser, emailloading, emailerror] =
+    useSignInWithEmailAndPassword(auth);
 
-  //   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  //   let errorManage;
+  let errorManage;
 
-  //   if (error || emailerror) {
-  //     errorManage = (
-  //       <div>
-  //         <p>
-  //           Error: {error?.message}
-  //           {emailerror?.message}
-  //         </p>
-  //       </div>
-  //     );
-  //   }
+  if (error || emailerror) {
+    errorManage = (
+      <div>
+        <p>
+          Error: {error?.message}
+          {emailerror?.message}
+        </p>
+      </div>
+    );
+  }
 
-  //   if (loading || emailloading) {
-  //     return <Loading></Loading>;
-  //   }
-  //   const from = location.state?.from?.pathname || "/";
+  // if (loading || emailloading) {
+  //   return <Loading></Loading>;
+  // }
+  // const from = location.state?.from?.pathname || "/";
 
-  //   if (user || emailuser) {
-  //     navigate(from, { replace: true });
-  //   }
+  // if (user || emailuser) {
+  //   navigate(from, { replace: true });
+  // }
 
-  //   const handleLogIn = (e) => {
-  //     e.preventDefault();
+  if(user||emailuser){
+    
+    navigate('/home')
+  }
+  const handleLogIn = (e) => {
+    e.preventDefault();
 
-  //     const email = e.target.email.value;
-  //     const password = e.target.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-  //     //signin with email-password
-  //     signInWithEmailAndPassword(email, password);
-  //   };
+    //signin with email-password
+    signInWithEmailAndPassword(email, password);
+  };
 
-  //   const handleResetPassword = (event) => {
-  //     const email = event.target.email.value;
-  //     console.log(email);
-  //     if (email) {
-  //       sendPasswordResetEmail(email);
-  //       alert("Sent email");
-  //     } else {
-  //       alert("Please enter your email");
-  //     }
-  //   };
+  const handleResetPassword = (event) => {
+    const email = event.target.email.value;
+    console.log(email);
+    if (email) {
+      sendPasswordResetEmail(email);
+      alert("Sent email");
+    } else {
+      alert("Please enter your email");
+    }
+  };
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
+    signInWithEmailAndPassword(data.email, data.password);
     console.log(data);
   };
   return (
@@ -90,10 +101,10 @@ const Login = () => {
                     },
                   })}
                 />
-                {/* <p className="text-red-500">
+                <p className="text-red-500">
                   {errors.email?.type === "required" && "email is required"}
                   {errors.email?.type === "pattern" && "email must be valid"}
-                </p> */}
+                </p>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -112,12 +123,12 @@ const Login = () => {
                   })}
                 />
 
-                {/* <p className="text-red-500">
+                <p className="text-red-500">
                   {errors.password?.type === "required" &&
                     "password is required"}
                   {errors.password?.type === "minLength" &&
                     "password must be 8 characters"}
-                </p> */}
+                </p>
 
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -131,7 +142,10 @@ const Login = () => {
                   className="btn btn-primary"
                   value="Login"
                 />
-                <button className="btn btn-primary mt-4">
+                <button
+                  onClick={() => signInWithGoogle()}
+                  className="btn btn-primary mt-4"
+                >
                   <div className="flex flex-row items-center">
                     <img
                       style={{ height: "35px" }}
@@ -149,7 +163,7 @@ const Login = () => {
               </div>
               <div>
                 <p>
-                  New to Uniseq?{" "}
+                  New to <span className="uppercase text-green-900 font-semibold">mais</span> ?{" "}
                   <Link className="link link-secondary" to="/register">
                     Register{" "}
                   </Link>
