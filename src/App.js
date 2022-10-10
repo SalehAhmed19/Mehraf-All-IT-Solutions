@@ -6,6 +6,7 @@ import Footer from "./Shared/Footer/Footer";
 import Login from './Pages/Home/Login/Login.jsx'
 import Register from "./Pages/Home/Register/Register";
 
+
 function App() {
   return (
     <div className="App">
