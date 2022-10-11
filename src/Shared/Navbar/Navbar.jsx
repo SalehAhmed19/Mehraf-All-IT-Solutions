@@ -15,7 +15,10 @@ import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo.png";
 import SearchBar from "./SearchBar";
 import AppDrawer from "../../Pages/Home/AppDrawer/AppDrawer";
-
+import { signOut } from "firebase/auth";
+import auth from "../../firebase.init";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuthState } from "react-firebase-hooks/auth";
 const pages = [
   {
     _id: 1,
@@ -36,6 +39,10 @@ const pages = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -138,11 +145,18 @@ const ResponsiveAppBar = () => {
           </Box>
           <SearchBar />
           <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Logout">
+              <IconButton onClick={logout} sx={{ p: 1 }}>
+                <LogoutIcon />
+              </IconButton>
+            </Tooltip>
+
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"

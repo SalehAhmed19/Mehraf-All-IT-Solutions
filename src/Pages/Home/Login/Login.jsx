@@ -199,7 +199,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Shared/Loading/Loading";
-
+import GoogleIcon from "@mui/icons-material/Google";
 function Copyright(props) {
   return (
     <Typography
@@ -219,10 +219,11 @@ export default function SignIn() {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
-  if (gUser) {
+  if (gUser || emailuser) {
+    console.log(emailuser,gUser);
     navigate("/");
   }
-  if (loading) {
+  if (loading || emailloading) {
     <Loading />;
   }
   const handleSubmit = (event) => {
@@ -234,8 +235,9 @@ export default function SignIn() {
     //signin with email-password
     signInWithEmailAndPassword(email, password);
 
-    console.log(email, password);
+    
   };
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -297,10 +299,10 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 1, mb: 2 }}
               onClick={() => signInWithGoogle()}
             >
-              Sign In with Google
+              <GoogleIcon /> <span className="px-2">Sign In with Google</span>
             </Button>
             <Grid container>
               <Grid item xs>
