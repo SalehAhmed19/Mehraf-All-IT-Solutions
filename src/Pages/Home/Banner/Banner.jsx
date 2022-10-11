@@ -1,6 +1,6 @@
 import React from "react";
 import "./Banner.css";
-import banner from "../../../Assets/images/banner.jpeg";
+import banner from "../../../Assets/images/banner.png";
 
 const Banner = () => {
   return (
@@ -8,18 +8,22 @@ const Banner = () => {
       className="hero min-h-screen"
       style={{ backgroundImage: `url(${banner})` }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold heading-font text-white">
-            Mehraf All IT Solutions
+        <div style={{ color: "#0071e8" }} className="max-w-md">
+          <h1
+            style={{ fontFamily: "Fira Sans" }}
+            className="mb-5 text-6xl font-bold"
+          >
+            MEHRAF All IT Solutions
           </h1>
-          <p className="mb-5">
+          <p className="mb-5 font-bold">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn glass">Explore with US</button>
+          <button style={{ color: "#0071e8" }} className="btn glass text-black">
+            Explore with US
+          </button>
         </div>
       </div>
     </div>

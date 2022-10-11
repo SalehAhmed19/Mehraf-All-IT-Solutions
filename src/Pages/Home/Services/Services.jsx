@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Freatured = () => {
+const Services = () => {
   const data = [
     {
       _id: 1,
@@ -35,23 +35,24 @@ const Freatured = () => {
     },
   ];
   return (
-    <div className="my-20">
+    <div className="my-20" style={{ color: "#0071e8" }}>
       <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold text-center py-5">
-          Featured Services
-        </h2>
-        <div className="h-1 bg-gray-700 w-36 rounded"></div>
+        <h2 className="text-4xl font-bold text-center py-5">Services</h2>
+        <div
+          style={{ background: "#0071e8" }}
+          className="h-1 w-36 rounded"
+        ></div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-5 lg:mx-40">
         {data.map((d) => (
-          <div className="flex justify-center">
+          <div key={d._id} className="flex justify-center">
             <div
-              className="hero min-h-screen"
+              className="hero h-96 rounded-lg"
               style={{
                 backgroundImage: `url(${d.img})`,
               }}
             >
-              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-white">
@@ -71,4 +72,4 @@ const Freatured = () => {
   );
 };
 
-export default Freatured;
+export default Services;
