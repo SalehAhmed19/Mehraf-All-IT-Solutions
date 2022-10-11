@@ -1,112 +1,174 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo.png";
+import SearchBar from "./SearchBar";
 import AppDrawer from "../../Pages/Home/AppDrawer/AppDrawer";
 
-const Navbar = () => {
+const pages = [
+  {
+    _id: 1,
+    name: "Product",
+    route: "/product",
+  },
+  {
+    _id: 2,
+    name: "Pricing",
+    route: "/pricing",
+  },
+  {
+    _id: 3,
+    name: "Login",
+    route: "/login",
+  },
+];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const ResponsiveAppBar = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+    <AppBar position="static" color="inherit">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Link to="/">
+            {" "}
+            <img className="hidden lg:block lg:h-10 mx-2 " src={logo} alt="" />
+          </Link>
+          {/* <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <a className="justify-between">
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
-        <a className="btn btn-ghost normal-case text-xl">
-          <img className="w-12" src={logo} alt="" />
-        </a>
-        <AppDrawer />
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
-          <li>
-            <a>Home</a>
-          </li>
-          <li>
-            <Link to="login">login</Link>
-          </li>
-          <li tabIndex={0}>
-            <a>
-              Services
-              <svg
-                className="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
+            MEHRAF
+          </Typography> */}
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="secondary"
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page._id} onClick={handleCloseNavMenu}>
+                  <Link to={page.route}>{page.name}</Link>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <AppDrawer />
+          {/* <Link to="/">
+            {" "}
+            <img className=" lg:hidden  h-6 mx-2" src={logo} alt="" />
+          </Link> */}
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Link
+                className="px-4"
+                key={page._id}
+                to={page.route}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
-                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-              </svg>
-            </a>
-            <ul className="p-2 text-white">
-              <li>
-                <a>Logo Design</a>
-              </li>
-              <li>
-                <a>Banner Design</a>
-              </li>
-              <li>
-                <a>Flyer Design</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a>Contact</a>
-          </li>
-        </ul>
-      </div>
-      <div className="navbar-end">
-        <Button variant="contained">Get Started</Button>
-      </div>
-    </div>
+                {page.name}
+              </Link>
+            ))}
+          </Box>
+          <SearchBar />
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography>{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
-
-export default Navbar;
+export default ResponsiveAppBar;

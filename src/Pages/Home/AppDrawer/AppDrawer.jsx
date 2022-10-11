@@ -67,7 +67,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      {["Drawer"].map((anchor) => (
+      {["MEHRAF"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
