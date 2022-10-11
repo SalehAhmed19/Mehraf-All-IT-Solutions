@@ -1,4 +1,10 @@
 import React from "react";
+import PaletteIcon from "@mui/icons-material/Palette";
+import DevicesIcon from "@mui/icons-material/Devices";
+import WebIcon from "@mui/icons-material/Web";
+import AnimationIcon from "@mui/icons-material/Animation";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import serviceBG from "../../../Assets/images/service-bg.webp";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -8,34 +14,49 @@ const Services = () => {
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/56jDts6/graphics-design-2.jpg",
+      icon: <PaletteIcon style={{ fontSize: "80px" }} />,
+      route: "/graphic-design",
     },
     {
       _id: 2,
-      title: "Web Design",
+      title: "Web Designing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/c2gQpDR/web-design-2.jpg",
+      icon: <DevicesIcon style={{ fontSize: "80px" }} />,
+      route: "/web-design",
     },
     {
       _id: 3,
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/FD0xVMH/web-development.jpg",
+      icon: <WebIcon style={{ fontSize: "80px" }} />,
+      route: "/web-development",
     },
     {
       _id: 4,
       title: "Video & Animation",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
+      icon: <AnimationIcon style={{ fontSize: "80px" }} />,
+      route: "/video-animation",
     },
     {
       _id: 5,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
+      icon: <QueryStatsIcon style={{ fontSize: "80px" }} />,
+      route: "/digital-marketing",
     },
   ];
   return (
-    <div className="my-20" style={{ color: "#0071e8" }}>
+    <div
+      className="my-20"
+      style={{
+        color: "#0071e8",
+      }}
+    >
       <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold text-center py-5">Services</h2>
         <div
@@ -43,29 +64,19 @@ const Services = () => {
           className="h-1 w-36 rounded"
         ></div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-5 lg:mx-40">
+      <div className="grid grid-cols-1 lg:grid-cols-4 my-10 gap-10 mx-5 lg:mx-40">
         {data.map((d) => (
-          <div key={d._id} className="flex justify-center">
-            <div
-              className="hero h-96 rounded-lg"
-              style={{
-                backgroundImage: `url(${d.img})`,
-              }}
-            >
-              <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-              <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-white">
-                    {d.title}
-                  </h1>
-                  <p className="mb-5">{d.des}</p>
-                  <Link to="" className="btn glass">
-                    Explore Now
-                  </Link>
-                </div>
+          <Link to={d.route}>
+            <div className="card h-72 glass flex justify-center items-center hover:bg-blue-600 transition ease-in duration-300 hover:text-white cursor-pointer pb-5">
+              <figure>
+                <span className="pt-10">{d.icon}</span>
+              </figure>
+              <div className="card-body">
+                <h2 className="text-center text-3xl font-bold">{d.title}</h2>
+                <p className="text-center">{d.des}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,34 +1,35 @@
 import React from "react";
 import logo from "../../Assets/images/logo.png";
+import bg from "../../Assets/images/banner.png";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+    <div style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}>
+      <footer className="footer p-10 text-base-content border">
         <div>
-          <span className="footer-title">Services</span>
+          <span className="font-bold text-xl">Services</span>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
           <a className="link link-hover">Advertisement</a>
         </div>
         <div>
-          <span className="footer-title">Company</span>
+          <span className="font-bold text-xl">Company</span>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>
         <div>
-          <span className="footer-title">Legal</span>
+          <span className="font-bold text-xl">Legal</span>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <footer className="footer px-10 py-4 border-t  text-base-content border-base-300">
         <div className="items-center grid-flow-col">
-          <img src={logo} alt="" />
+          <img className="h-10" src={logo} alt="" />
           {/* <svg
             width="24"
             height="24"
