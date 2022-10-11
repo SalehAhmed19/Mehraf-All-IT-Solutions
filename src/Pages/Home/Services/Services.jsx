@@ -4,7 +4,6 @@ import DevicesIcon from "@mui/icons-material/Devices";
 import WebIcon from "@mui/icons-material/Web";
 import AnimationIcon from "@mui/icons-material/Animation";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import serviceBG from "../../../Assets/images/service-bg.webp";
 import { Link } from "react-router-dom";
 
 const Services = () => {
