@@ -1,6 +1,7 @@
 import React from "react";
 import ladies from "../../../Assets/images/woman.jpg";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 const About = () => {
   return (
@@ -34,7 +35,10 @@ const About = () => {
             <span className="p-5 border rounded-md">
               <div className="flex w-full">
                 <div className="grid h-20 flex-grow card place-items-center">
-                  <PriceCheckIcon fontSize="large" color="primary" />
+                  <CurrencyExchangeIcon
+                    style={{ fontSize: "50px" }}
+                    color="primary"
+                  />
                 </div>
                 <div className="divider divider-horizontal"></div>
                 <div className="grid h-20 flex-grow card place-items-center">
@@ -48,7 +52,10 @@ const About = () => {
             <span className="p-5 border rounded-md">
               <div className="flex w-full">
                 <div className="grid h-20 flex-grow card place-items-center">
-                  <EngineeringIcon fontSize="large" color="primary" />
+                  <EngineeringIcon
+                    style={{ fontSize: "50px" }}
+                    color="primary"
+                  />
                 </div>
                 <div className="divider divider-horizontal"></div>
                 <div className="grid h-20 flex-grow card place-items-center">
