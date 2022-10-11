@@ -46,12 +46,12 @@ const Freatured = () => {
         {data.map((d) => (
           <div key={d._id} className="flex justify-center">
             <div
-              className="hero min-h-screen"
+              className="hero h-96 rounded-lg"
               style={{
                 backgroundImage: `url(${d.img})`,
               }}
             >
-              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-white">
