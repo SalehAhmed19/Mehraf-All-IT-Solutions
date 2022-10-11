@@ -167,6 +167,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Modal from "@mui/material/Modal";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 //terms and conditions modal style
 const style = {
@@ -198,13 +200,19 @@ export default function SignUp() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  //create user through email and password
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const mobile = event.target.mobile.value;
+
+    createUserWithEmailAndPassword(email,password)
+    console.log(user);
   };
 
   return (
@@ -270,6 +278,7 @@ export default function SignUp() {
                   id="mobile"
                   label="Mobile number"
                   name="mobile"
+                  autoComplete="off"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -283,6 +292,17 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
+              {/* <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="confirmPassword"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid> */}
               <Grid item xs={12}>
                 {" "}
                 <Grid container>

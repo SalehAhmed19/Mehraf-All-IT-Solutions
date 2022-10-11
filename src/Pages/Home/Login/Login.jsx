@@ -219,10 +219,11 @@ export default function SignIn() {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
-  if (gUser) {
+  if (gUser || emailuser) {
+    console.log(emailuser,gUser);
     navigate("/");
   }
-  if (loading) {
+  if (loading || emailloading) {
     <Loading />;
   }
   const handleSubmit = (event) => {
@@ -234,8 +235,9 @@ export default function SignIn() {
     //signin with email-password
     signInWithEmailAndPassword(email, password);
 
-    console.log(email, password);
+    
   };
+  
 
   return (
     <ThemeProvider theme={theme}>
