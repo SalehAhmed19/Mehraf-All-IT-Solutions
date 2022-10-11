@@ -41,7 +41,7 @@ const WhyUs = () => {
       <h2 className="text-4xl font-bold text-center py-10">WHY US?</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:mx-10">
         {data.map((d) => (
-          <>
+          <div key={d._id}>
             <Card sx={{ maxWidth: 345 }}>
               {/* <CardMedia
                 component="img"
@@ -62,7 +62,7 @@ const WhyUs = () => {
                 <Button size="small">Learn More</Button>
               </CardActions>
             </Card>
-          </>
+          </div>
         ))}
       </div>
     </div>
