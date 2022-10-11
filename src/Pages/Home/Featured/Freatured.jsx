@@ -35,12 +35,15 @@ const Freatured = () => {
     },
   ];
   return (
-    <div className="my-20">
+    <div className="my-20" style={{ color: "#0071e8" }}>
       <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold text-center py-5">
           Featured Services
         </h2>
-        <div className="h-1 bg-gray-700 w-36 rounded"></div>
+        <div
+          style={{ background: "#0071e8" }}
+          className="h-1 w-36 rounded"
+        ></div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-5 lg:mx-40">
         {data.map((d) => (

@@ -3,7 +3,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -37,7 +36,7 @@ const WhyUs = () => {
     },
   ];
   return (
-    <div className="my-10">
+    <div className="my-10" style={{ color: "#0071e8" }}>
       <h2 className="text-4xl font-bold text-center py-10">WHY US?</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:mx-10">
         {data.map((d) => (
