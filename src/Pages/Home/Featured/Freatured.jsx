@@ -44,7 +44,7 @@ const Freatured = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 mx-5 lg:mx-40">
         {data.map((d) => (
-          <div className="flex justify-center">
+          <div key={d._id} className="flex justify-center">
             <div
               className="hero min-h-screen"
               style={{

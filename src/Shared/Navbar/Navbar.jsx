@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo.png";
+import AppDrawer from "../../Pages/Home/AppDrawer/AppDrawer";
 
 const Navbar = () => {
   return (
@@ -61,6 +62,7 @@ const Navbar = () => {
         <a className="btn btn-ghost normal-case text-xl">
           <img className="w-12" src={logo} alt="" />
         </a>
+        <AppDrawer />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -101,7 +103,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {/* <a className="btn btn-ghost">Get started</a> */}
         <Button variant="contained">Get Started</Button>
       </div>
     </div>
