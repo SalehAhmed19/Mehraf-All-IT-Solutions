@@ -166,7 +166,20 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Modal from "@mui/material/Modal";
 
+//terms and conditions modal style
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 function Copyright(props) {
   return (
     <Typography
@@ -181,6 +194,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -253,7 +270,6 @@ export default function SignUp() {
                   id="mobile"
                   label="Mobile number"
                   name="mobile"
-              
                 />
               </Grid>
               <Grid item xs={12}>
@@ -268,12 +284,52 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
+                {" "}
+                <Grid container>
+                  <Grid item xs={1}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox value="allowExtraEmails" color="primary" />
+                      }
+                    />
+                  </Grid>
+                  <Grid item xs={11}>
+                    you agree to
+                    <Button onClick={handleOpen}>
+                      terms and privacy policy
+                    </Button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style}>
+                        <Typography
+                          id="modal-modal-title"
+                          variant="h6"
+                          component="h2"
+                        >
+                          Terms and Privacy policy
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 4 }}>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Maiores in autem nobis, iste tempora quos beatae
+                          soluta ut repellendus, quisquam accusantium qui? Atque
+                          nobis officia magnam in eos natus ratione, nam
+                          reprehenderit obcaecati error harum doloremque
+                          laboriosam quod debitis molestias.Lorem ipsum dolor
+                          sit amet consectetur adipisicing elit. Maiores in
+                          autem nobis, iste tempora quos beatae soluta ut
+                          repellendus, quisquam accusantium qui? Atque nobis
+                          officia magnam in eos natus ratione, nam reprehenderit
+                          obcaecati error harum doloremque laboriosam quod
+                          debitis molestias.
+                        </Typography>
+                      </Box>
+                    </Modal>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
             <Button
