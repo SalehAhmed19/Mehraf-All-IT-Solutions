@@ -18,14 +18,6 @@ const Services = () => {
     },
     {
       _id: 2,
-      title: "Web Designing",
-      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: "https://i.ibb.co/c2gQpDR/web-design-2.jpg",
-      icon: <DevicesIcon style={{ fontSize: "80px" }} />,
-      route: "/web-design",
-    },
-    {
-      _id: 3,
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/FD0xVMH/web-development.jpg",
@@ -33,7 +25,7 @@ const Services = () => {
       route: "/web-development",
     },
     {
-      _id: 4,
+      _id: 3,
       title: "Video & Animation",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
@@ -41,7 +33,7 @@ const Services = () => {
       route: "/video-animation",
     },
     {
-      _id: 5,
+      _id: 4,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: "https://i.ibb.co/CHKdP2n/digital-marketing-2.jpg",
@@ -51,6 +43,7 @@ const Services = () => {
   ];
   return (
     <div
+      id="services"
       className="my-20"
       style={{
         color: "#0071e8",
@@ -66,7 +59,7 @@ const Services = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 my-10 gap-10 mx-5 lg:mx-40">
         {data.map((d) => (
           <Link to={d.route}>
-            <div className="card h-72 glass flex justify-center items-center hover:bg-blue-600 transition ease-in duration-300 hover:text-white cursor-pointer pb-5">
+            <div className="card h-72 glass flex justify-center items-center lg:bg-white text-white lg:text-black bg-blue-600 hover:bg-blue-600 transition ease-in duration-300 hover:text-white cursor-pointer pb-5">
               <figure>
                 <span className="pt-10">{d.icon}</span>
               </figure>
