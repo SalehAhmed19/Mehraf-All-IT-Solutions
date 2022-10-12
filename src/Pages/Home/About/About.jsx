@@ -5,7 +5,7 @@ import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 const About = () => {
   return (
-    <div>
+    <div id="about">
       <div className="card lg:card-side bg-base-100 border lg:mx-40 mx-5">
         <figure>
           <img src={ladies} alt="Album" />
