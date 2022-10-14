@@ -12,10 +12,11 @@ const Banner = () => {
         <div style={{ color: "#0071e8" }} className="max-w-md">
           <h1
             style={{ fontFamily: "Fira Sans" }}
-            className="mb-5 text-6xl font-bold"
+            className="text-6xl font-bold"
           >
-            MEHRAF All IT Solutions
+            MEHRAF
           </h1>
+          <h3 className="text-xl font-bold pb-3">All IT Solutions</h3>
           <p className="mb-5 font-bold">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
