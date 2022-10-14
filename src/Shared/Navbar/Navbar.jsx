@@ -60,7 +60,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  console.log(user);
   return (
     <AppBar position="static" color="inherit">
       <Container maxWidth="xl">
@@ -145,15 +145,15 @@ const ResponsiveAppBar = () => {
           </Box>
           <SearchBar />
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Logout">
+            {/* <Tooltip title="Logout">
               <IconButton onClick={logout} sx={{ p: 1 }}>
                 <LogoutIcon />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={user?.photoURL} />
               </IconButton>
             </Tooltip>
 
