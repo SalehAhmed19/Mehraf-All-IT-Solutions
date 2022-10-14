@@ -19,6 +19,7 @@ import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Button } from "@mui/material";
 const pages = [
   {
     _id: 1,
@@ -29,11 +30,6 @@ const pages = [
     _id: 2,
     name: "Pricing",
     route: "/pricing",
-  },
-  {
-    _id: 3,
-    name: "Login",
-    route: "/login",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -60,7 +56,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  console.log(user);
   return (
     <AppBar position="static" color="inherit">
       <Container maxWidth="xl">
@@ -127,17 +123,22 @@ const ResponsiveAppBar = () => {
           </Box>
           <SearchBar />
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Logout">
-              <IconButton onClick={logout} sx={{ p: 1 }}>
-                <LogoutIcon />
-              </IconButton>
-            </Tooltip>
-
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+            {user ? (
+              <Box>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+                    <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Logout">
+                  <IconButton onClick={logout} sx={{ p: 1 }}>
+                    <LogoutIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+            ) : (
+              <Link  to='/login'>Login</Link>
+            )}
 
             <Menu
               sx={{ mt: "45px" }}
