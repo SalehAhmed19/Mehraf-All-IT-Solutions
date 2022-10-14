@@ -18,6 +18,7 @@ import {
   useSendPasswordResetEmail,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import { useForm } from "react-hook-form";
 
 //terms and conditions modal style
 const style = {
@@ -65,16 +66,23 @@ export default function SignUp() {
     console.log(acceptTnc, e);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    // const firstName = event.target.value;
-    const lastName = event.target.lastName.value;
-    const mobile = event.target.mobile.value;
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const email = event.target.email.value;
+  //   const password = event.target.password.value;
+  //   // const firstName = event.target.value;
+  //   const lastName = event.target.lastName.value;
+  //   const mobile = event.target.mobile.value;
 
-    createUserWithEmailAndPassword(email, password);
-  };
+  //   createUserWithEmailAndPassword(email, password);
+  // };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <ThemeProvider theme={theme}>
@@ -94,7 +102,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
+          {/* <Box
             component="form"
             noValidate
             onSubmit={handleSubmit}
@@ -259,6 +267,238 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
+          </Box> */}
+
+          <Box>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Box sx={{ mt: 3 }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      autoComplete="given-name"
+                      name="firstName"
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      autoFocus
+                      {...register("firstName", {
+                        required: true,
+                      })}
+                      // onChange={(e) => setFirstName(e.target.value)}
+                      // helperText={!firstName ? "Required" : ""}
+                      // error={!firstName}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      // error={!lastName}
+                      // onChange={(e) => setLastName(e.target.value)}
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="family-name"
+                      {...register("lastName", {
+                        required: true,
+                      })}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      type="email"
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      // // helperText={!email ? "Required" : ""}
+                      // error={!email}
+                      // onChange={(e) => setEmail(e.target.value)}
+
+                      required
+                      fullWidth
+                      {...register("email", {
+                        required: true,
+                        pattern: {
+                          value: /[A-Za-z]{3}/,
+                          message: "error message",
+                        },
+                      })}
+                    />
+                    <Typography
+                      component="p"
+                      color="error"
+                      sx={{ marginTop: ".5rem" }}
+                    >
+                      {errors.email?.type === "required" && "Email is required"}
+                      {errors.email?.type === "pattern" &&
+                        "Email must be valid"}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      // error={!mobile}
+                      // onChange={(e) => setMobile(e.target.value)}
+                      fullWidth
+                      id="mobile"
+                      type="number"
+                      label="Mobile number"
+                      name="mobile"
+                      autoComplete="off"
+                      {...register("mobile", {
+                        required: true,
+                        minLength: {
+                          value: 11,
+                          message: "error message",
+                        },
+                      })}
+                    />
+                    <Typography
+                      component="p"
+                      color="error"
+                      sx={{ marginTop: ".5rem" }}
+                    >
+                      {errors.mobile?.type === "required" &&
+                        "Mobile Number is required"}
+                      {errors.mobile?.type === "minLength" &&
+                        "Mobile must be 11 characters"}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      type="password"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      id="password"
+                      autoComplete="new-password"
+                      // error={!password}
+                      // onChange={(e) => setPassword(e.target.value)}
+                      {...register("password", {
+                        required: true,
+                        minLength: {
+                          value: 8,
+                          message: "error message",
+                        },
+                      })}
+                    />
+
+                    <Typography
+                      component="p"
+                      color="error"
+                      sx={{ marginTop: ".5rem" }}
+                    >
+                      {errors.password?.type === "required" &&
+                        "Password is required"}
+                      {errors.password?.type === "minLength" &&
+                        "Password must be 8 characters"}
+                    </Typography>
+                    {/* errors will return when field validation fails  */}
+                    {errors.exampleRequired && (
+                      <span>This field is required</span>
+                    )}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      name="confirmPassword"
+                      label="Confirm Password"
+                      type="password"
+                      id="confirmPassword"
+                      autoComplete="confirmPassword"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    {" "}
+                    <Grid container>
+                      <Grid item xs={1}>
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={acceptTnc}
+                              onChange={handleChange}
+                              color="primary"
+                            />
+                          }
+                        />
+                      </Grid>
+                      <Grid item xs={11}>
+                        you agree to
+                        <Button onClick={handleOpen}>
+                          terms and privacy policy
+                        </Button>
+                        <Modal
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Box sx={style}>
+                            <Typography
+                              id="modal-modal-title"
+                              variant="h6"
+                              component="h2"
+                            >
+                              Terms and Privacy policy
+                            </Typography>
+                            <Typography
+                              id="modal-modal-description"
+                              sx={{ mt: 4 }}
+                            >
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Maiores in autem nobis, iste tempora quos
+                              beatae soluta ut repellendus, quisquam accusantium
+                              qui? Atque nobis officia magnam in eos natus
+                              ratione, nam reprehenderit obcaecati error harum
+                              doloremque laboriosam quod debitis molestias.Lorem
+                              ipsum dolor sit amet consectetur adipisicing elit.
+                              Maiores in autem nobis, iste tempora quos beatae
+                              soluta ut repellendus, quisquam accusantium qui?
+                              Atque nobis officia magnam in eos natus ratione,
+                              nam reprehenderit obcaecati error harum doloremque
+                              laboriosam quod debitis molestias.
+                            </Typography>
+                          </Box>
+                        </Modal>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  {acceptTnc ? (
+                    //  <input type="submit" />
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      Sign Up
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                      disabled
+                    >
+                      Sign Up
+                    </Button>
+                  )}
+                </Grid>
+
+                <Grid container justifyContent="flex-end">
+                  <Grid item>
+                    <Link href="/login" variant="body2">
+                      Already have an account? Sign in
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Box>
+
+              {/* include validation with required or other standard HTML validation rules */}
+            </form>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
