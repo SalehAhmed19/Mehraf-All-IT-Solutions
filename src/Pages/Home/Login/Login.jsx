@@ -21,6 +21,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Shared/Loading/Loading";
 import GoogleIcon from "@mui/icons-material/Google";
+import { useForm } from "react-hook-form";
 function Copyright(props) {
   return (
     <Typography
@@ -37,7 +38,10 @@ const theme = createTheme();
 export default function SignIn() {
   const [email, setEmail] = React.useState("");
 
+  //sign in with Google
   const [signInWithGoogle, gUser, loading, error] = useSignInWithGoogle(auth);
+
+  //sign in with Email and Password
   const [signInWithEmailAndPassword, emailuser, emailloading, emailerror] =
     useSignInWithEmailAndPassword(auth);
 
@@ -53,6 +57,7 @@ export default function SignIn() {
   if (loading || emailloading) {
     <Loading />;
   }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -78,82 +83,90 @@ export default function SignIn() {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "#0071E8" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+        <>
           <Box
-            component="form"
             onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoFocus
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              helperText="Do not share your password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <Avatar sx={{ m: 1, bgcolor: "#0071E8" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              Sign In
-            </Button>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 1, mb: 2 }}
-              onClick={() => signInWithGoogle()}
-            >
-              <GoogleIcon /> <span className="px-2">Sign In with Google</span>
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link onClick={(e) => handleResetPassword()} href='#' variant="body1">
-                  Forgot password?
-                </Link>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoFocus
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                helperText="Do not share your password"
+              />
+
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 1, mb: 2 }}
+                onClick={() => signInWithGoogle()}
+              >
+                <GoogleIcon /> <span className="px-2">Sign In with Google</span>
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link
+                    onClick={(e) => handleResetPassword()}
+                    href="#"
+                    variant="body1"
+                  >
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="/register" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
+        </>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
