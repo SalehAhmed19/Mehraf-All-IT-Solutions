@@ -1,8 +1,32 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
 import contact from "../../Assets/images/contact3.png";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    e.target.value = "";
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_PUBLIC_KEYS
+      )
+      .then(
+        (result) => {
+          e.target.reset();
+          alert("Message Sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <div className="mx-10 border rounded-lg my-5 grid grid-cols-1 lg:grid-cols-2">
       <div className="rounded-lg">
@@ -12,32 +36,37 @@ const Contact = () => {
         <h2 className="text-center font-bold text-2xl lg:text-4xl py-2">
           Let's talk with us
         </h2>
-        <form className="bg-white">
+        <form ref={form} onSubmit={sendEmail} className="bg-white">
           <input
+            name="user_name"
             type="text"
             placeholder="Your Name"
             className="input input-bordered w-full my-2"
           />
           <input
+            name="user_email"
             type="text"
             placeholder="Your Email"
             className="input input-bordered w-full my-2"
           />
           <input
+            name="user_address"
             type="text"
             placeholder="Your Address"
             className="input input-bordered w-full my-2"
           />
           <input
+            name="user_phone"
             type="text"
             placeholder="Your Phone Number"
             className="input input-bordered w-full my-2"
           />
           <textarea
+            name="message"
             className="textarea textarea-bordered w-full h-40 my-2"
             placeholder="Your Message"
           ></textarea>
-          <Button variant="contained" className="w-full">
+          <Button type="submit" variant="contained" className="w-full">
             Send Message
           </Button>
         </form>
