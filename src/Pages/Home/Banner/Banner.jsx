@@ -1,31 +1,20 @@
 import React from "react";
 import "./Banner.css";
-import banner from "../../../Assets/images/banner.png";
+import banner from "../../../Assets/images/bg.png";
 
 const Banner = () => {
   return (
     <div
-      className="hero min-h-screen"
-      style={{ backgroundImage: `url(${banner})` }}
+      className="grid grid-cols-1 lg:grid-cols-2 my-5"
+      style={{ color: "#0071e8" }}
     >
-      <div className="hero-content text-center text-neutral-content">
-        <div style={{ color: "#0071e8" }} className="max-w-md">
-          <h1
-            style={{ fontFamily: "Fira Sans" }}
-            className="text-6xl font-bold"
-          >
-            MEHRAF
-          </h1>
-          <h3 className="text-xl font-bold pb-3">All IT Solutions</h3>
-          <p className="mb-5 font-bold">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button style={{ color: "#0071e8" }} className="btn glass text-black">
-            Explore with US
-          </button>
-        </div>
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-6xl font-bold text-center">Mehraf</h1>
+        <p className="font-bold text-xl">All IT Solutions</p>
+        <p>Choose the best IT services from here.</p>
+      </div>
+      <div className="hidden lg:block">
+        <img className="" src={banner} alt="" />
       </div>
     </div>
   );

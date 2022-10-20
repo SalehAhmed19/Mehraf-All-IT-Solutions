@@ -11,7 +11,7 @@ const About = () => {
           <img src={ladies} alt="Album" />
         </figure>
         <div className="card-body">
-          <div>
+          <div style={{ color: "#0071e8" }}>
             <h2 className="text-2xl font-bold py-3">About</h2>
             <div
               style={{ background: "#0071e8" }}
