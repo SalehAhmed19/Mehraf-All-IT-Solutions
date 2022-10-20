@@ -5,7 +5,7 @@ import banner from "../../../Assets/images/bg.png";
 const Banner = () => {
   return (
     <div
-      className="grid grid-cols-1 lg:grid-cols-2 my-5"
+      className="grid grid-cols-1 lg:grid-cols-2 mb-5"
       style={{ color: "#0071e8" }}
     >
       <div className="flex flex-col justify-center items-center">
