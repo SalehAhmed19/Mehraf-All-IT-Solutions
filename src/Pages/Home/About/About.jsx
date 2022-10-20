@@ -23,7 +23,7 @@ const About = () => {
             className="text-5xl font-bold"
           >
             Choose <span style={{ color: "#0071e8" }}>The Best</span> IT <br />{" "}
-            Service Company
+            Services Here
           </h2>
           <p>
             An IT firm or MSP who keeps your IT running smoothly at all times is
