@@ -25,11 +25,13 @@ const pages = [
     _id: 1,
     name: "Product",
     route: "/product",
+    href: "#product",
   },
   {
     _id: 2,
-    name: "Pricing",
-    route: "/pricing",
+    name: "Contact",
+    route: "/contact",
+    href: "#contact",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -137,7 +139,7 @@ const ResponsiveAppBar = () => {
                 </Tooltip>
               </Box>
             ) : (
-              <Link  to='/login'>Login</Link>
+              <Link to="/login">Login</Link>
             )}
 
             <Menu

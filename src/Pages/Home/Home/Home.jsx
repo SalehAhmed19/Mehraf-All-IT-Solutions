@@ -1,4 +1,5 @@
 import React from "react";
+import Contact from "../../Contact/Contact";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Discount from "../Discount/Discount";
@@ -13,6 +14,7 @@ const Home = () => {
       <Services />
       <Discount />
       <WhyUs />
+      <Contact />
     </div>
   );
 };
