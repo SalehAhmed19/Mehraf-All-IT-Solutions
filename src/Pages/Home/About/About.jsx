@@ -26,9 +26,15 @@ const About = () => {
             Services Here
           </h2>
           <p>
-            An IT firm or MSP who keeps your IT running smoothly at all times is
-            like a plumber who fixes your pipes; that’s what they are supposed
-            to do. Many IT firms struggle.
+            In the year 2021, <span className="font-bold">MEHRAF</span>{" "}
+            officially began operations. We are a nationwide company that
+            specializes in digital marketing, web design, and graphics. Our main
+            Domain is Graphics Design, Video Editing, Web Design & Development,
+            Digital Marketing. We are one of the industry pioneers thanks to our
+            high level of customer satisfaction and repeat business. What are
+            you waiting for, then? Let us discuss your ideas and our innovation
+            in detail because catering your requirement and converting it into a
+            final product is our main goal.
           </p>
           <div className="divider"></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">

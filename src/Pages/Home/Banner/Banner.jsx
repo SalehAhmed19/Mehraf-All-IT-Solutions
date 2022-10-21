@@ -12,7 +12,7 @@ const Banner = () => {
       >
         <div className="flex flex-col justify-center items-center h-96 lg:h-auto">
           <Typical
-            className="text-6xl font-bold"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold"
             steps={["MEHRAF", 1000, "ALL IT SOLUTIONS", 500]}
             loop={Infinity}
             wrapper="p"
