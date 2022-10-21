@@ -435,7 +435,7 @@ export default function SignUp() {
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                         >
-                          <Box sx={style}>
+                          <Box><Box sx={style} >
                             <Typography
                               id="modal-modal-title"
                               variant="h6"
@@ -460,7 +460,7 @@ export default function SignUp() {
                               nam reprehenderit obcaecati error harum doloremque
                               laboriosam quod debitis molestias.
                             </Typography>
-                          </Box>
+                          </Box></Box>
                         </Modal>
                       </Grid>
                     </Grid>

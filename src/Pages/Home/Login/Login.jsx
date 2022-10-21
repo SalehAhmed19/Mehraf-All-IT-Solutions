@@ -21,7 +21,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Shared/Loading/Loading";
 import GoogleIcon from "@mui/icons-material/Google";
+import PhoneIcon from "@mui/icons-material/Phone";
 import { useForm } from "react-hook-form";
+import { hover } from "@testing-library/user-event/dist/hover";
 function Copyright(props) {
   return (
     <Typography
@@ -139,15 +141,39 @@ export default function SignIn() {
               >
                 Sign In
               </Button>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 1, mb: 2 }}
-                onClick={() => signInWithGoogle()}
-              >
-                <GoogleIcon /> <span className="px-2">Sign In with Google</span>
-              </Button>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {" "}
+                  <Button
+                    size="small"
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 1, mb: 2 }}
+                    onClick={() => signInWithGoogle()}
+                  >
+                    <GoogleIcon />{" "}
+                    <span className="px-2 ">Continue with Google</span>
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button
+                    size="small"
+                    type="submit"
+                    fullWidth
+                    sx={{
+                      mt: 1,
+                      mb: 2,
+                      color: "#333333",
+                      backgroundColor: "#D9DEE8",
+                    }}
+                    onClick={() => signInWithGoogle()}
+                  >
+                    <PhoneIcon sx={{ color: "#333333" }} />{" "}
+                    <span className="px-2">Continue with Phone</span>
+                  </Button>
+                </Grid>
+              </Grid>
               <Grid container>
                 <Grid item xs>
                   <Link
