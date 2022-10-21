@@ -17,7 +17,13 @@ const Banner = () => {
             loop={Infinity}
             wrapper="p"
           />
-          <p>Choose the best IT services from here.</p>
+          <p className="py-3">Choose the best IT services from here.</p>
+          <button
+            style={{ color: "#0071e8" }}
+            className="btn glass hover:bg-blue-200"
+          >
+            Explore Now
+          </button>
         </div>
         <div className="hidden lg:block">
           <img className="" src={banner} alt="" />
