@@ -4,8 +4,8 @@ import bg from "../../Assets/images/banner.png";
 
 const Footer = () => {
   return (
-    <div style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}>
-      <footer className="footer p-10 text-base-content border">
+    <div style={{ background: "linear-gradient(#a0bef8, #9442ef)" }}>
+      <footer className="footer p-10">
         <div>
           <span className="font-bold text-xl">Services</span>
           <a className="link link-hover">Branding</a>
@@ -27,7 +27,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t  text-base-content border-base-300">
+      <footer className="footer px-10 py-4 text-base-content">
         <div className="items-center grid-flow-col">
           <img className="h-10" src={logo} alt="" />
           {/* <svg

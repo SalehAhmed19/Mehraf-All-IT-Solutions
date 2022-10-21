@@ -26,7 +26,10 @@ const About = () => {
             Services Here
           </h2>
           <p>
-            In the year 2021, <span className="font-bold">MEHRAF</span>{" "}
+            In the year 2021,{" "}
+            <span style={{ color: "#0071e8" }} className="font-bold">
+              MEHRAF
+            </span>{" "}
             officially began operations. We are a nationwide company that
             specializes in digital marketing, web design, and graphics. Our main
             Domain is Graphics Design, Video Editing, Web Design & Development,
