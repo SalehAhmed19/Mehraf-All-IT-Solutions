@@ -50,7 +50,7 @@ const Services = () => {
       }}
     >
       <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold text-center py-5">Services</h2>
+        <h2 className="text-4xl font-bold text-center py-5">Our Services</h2>
         <div
           style={{ background: "#0071e8" }}
           className="h-1 w-36 rounded"
