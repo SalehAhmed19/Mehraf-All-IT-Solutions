@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ color: "#333333" }}>
       <FloatingWhatsApp
         phoneNumber="+8801773120528"
         accountName="Mehraf All IT Solutions"
