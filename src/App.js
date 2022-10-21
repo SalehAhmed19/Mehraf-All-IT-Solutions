@@ -10,7 +10,8 @@ import GraphicDesign from "./Pages/Home/Services/GraphicDesign/GraphicDesign";
 import WebDevelopment from "./Pages/Home/Services/WebDevelopment/WebDevelopment";
 import VideoAnimation from "./Pages/Home/Services/VideoAnimation/VideoAnimation";
 import DigitalMarketing from "./Pages/Home/Services/DigitalMarketing/DigitalMarketing";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,18 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
       </Routes>
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
