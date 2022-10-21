@@ -44,12 +44,14 @@ const Contact = () => {
         </h2>
         <form ref={form} onSubmit={sendEmail} className="bg-white">
           <input
+            required
             name="user_name"
             type="text"
             placeholder="Your Name"
             className="input input-bordered w-full my-2"
           />
           <input
+            required
             name="user_email"
             value={user?.email}
             type="text"
@@ -57,18 +59,21 @@ const Contact = () => {
             className="input input-bordered w-full my-2"
           />
           <input
+            required
             name="user_address"
             type="text"
             placeholder="Your Address"
             className="input input-bordered w-full my-2"
           />
           <input
+            required
             name="user_phone"
             type="text"
             placeholder="Your Phone Number"
             className="input input-bordered w-full my-2"
           />
           <textarea
+            required
             name="message"
             className="textarea textarea-bordered w-full h-40 my-2"
             placeholder="Your Message"
