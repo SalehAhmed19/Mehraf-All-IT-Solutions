@@ -4,15 +4,15 @@ import bg from "../../Assets/images/banner.png";
 
 const Footer = () => {
   return (
-    <>
-      <div style={{ overFlow: "hidden" }}>
+    <div>
+      <div className="" style={{ overFlow: "hidden" }}>
         <svg
           preserveAspectRatio="none"
           viewBox="0 0 1200 120"
           xmlns="http://www.w3.org/2000/svg"
           style={{
             fill: "#a0bdf8",
-            width: "125%",
+            width: "100%",
             height: 75,
             transform: "rotate(180deg)",
           }}
@@ -122,7 +122,7 @@ const Footer = () => {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
