@@ -4,6 +4,7 @@ import contact from "../../Assets/images/contact3.png";
 import emailjs from "@emailjs/browser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [user] = useAuthState(auth);
@@ -23,7 +24,16 @@ const Contact = () => {
       .then(
         (result) => {
           e.target.reset();
-          alert("Message Sent");
+          toast.success("Email sent successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         },
         (error) => {
           console.log(error.text);
