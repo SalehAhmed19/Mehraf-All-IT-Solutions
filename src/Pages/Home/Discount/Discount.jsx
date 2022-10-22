@@ -1,9 +1,10 @@
 import React from "react";
+import "./Discount.css";
 
 const Discount = () => {
   return (
-    <div className="p-10 bg-gradient-to-r from-blue-600 to-blue-400">
-      <h1 className="text-5xl font-bold text-center text-white">
+    <div className="p-10 bg" style={{ color: "#333333" }}>
+      <h1 className="text-5xl font-bold text-center">
         10% Discount of all services!
       </h1>
     </div>

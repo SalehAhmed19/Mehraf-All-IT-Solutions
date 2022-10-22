@@ -12,6 +12,7 @@ import VideoAnimation from "./Pages/Home/Services/VideoAnimation/VideoAnimation"
 import DigitalMarketing from "./Pages/Home/Services/DigitalMarketing/DigitalMarketing";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Contact from "./Pages/Contact/Contact";
 function App() {
   return (
     <div className="App" style={{ color: "#333333" }}>
@@ -32,6 +33,7 @@ function App() {
         <Route path="digital-marketing" element={<DigitalMarketing />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>
       <Footer />

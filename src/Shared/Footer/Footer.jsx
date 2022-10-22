@@ -29,7 +29,7 @@ const Footer = () => {
         </svg>
       </div>
       <div style={{ background: "linear-gradient(#a0bef8, #1565c0)" }}>
-        <footer className="footer p-10">
+        <footer className="footer p-10 text-slate-200">
           <div>
             <span className="font-bold text-xl">Services</span>
             <a href="" className="link link-hover">
@@ -73,7 +73,7 @@ const Footer = () => {
             </a>
           </div>
         </footer>
-        <footer className="footer px-10 py-4 text-base-content">
+        <footer className="footer px-10 py-4 text-slate-200">
           <div className="items-center grid-flow-col">
             <img className="h-10" src={logo} alt="" />
             <p>
