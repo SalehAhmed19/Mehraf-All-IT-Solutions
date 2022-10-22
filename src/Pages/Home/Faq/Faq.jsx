@@ -14,8 +14,17 @@ export default function Faq() {
   };
 
   return (
-    <Box sx={{margin:"3rem" , marginTop:"7rem"}}>
-      <Typography variant="h2" component="div" sx={{ textAlign: "center",marginBottom:"3rem" }}>
+    <Box sx={{ margin: "3rem", marginTop: "7rem" }}>
+      <Typography
+        variant="h4"
+        component="div"
+        sx={{
+          textAlign: "center",
+          marginBottom: "3rem",
+          fontWeight: 900,
+          color: "#0071e8",
+        }}
+      >
         Frequently Asked Questions
       </Typography>
       <Box>
@@ -30,7 +39,10 @@ export default function Faq() {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+            <Typography
+              variant="h6"
+              sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
+            >
               Where Can I Get Support?
             </Typography>
           </AccordionSummary>
@@ -57,7 +69,10 @@ export default function Faq() {
             aria-controls="panel2bh-content"
             id="panel2bh-header"
           >
-            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+            <Typography
+              variant="h6"
+              sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
+            >
               Are The Prebuilt Websites Fully Customizable?
             </Typography>
           </AccordionSummary>
@@ -83,9 +98,17 @@ export default function Faq() {
             aria-controls="panel3bh-content"
             id="panel3bh-header"
           >
-            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+            <Typography
+              variant="h6"
+              sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
+            >
               Why Should I Trust{" "}
-              <Typography variant="h5" component="span" color="primary">
+              <Typography
+                variant="h6"
+                component="span"
+                color="primary"
+                sx={{ fontWeight: 900 }}
+              >
                 Mehraf All IT ?
               </Typography>
             </Typography>
@@ -108,7 +131,10 @@ export default function Faq() {
             aria-controls="panel4bh-content"
             id="panel4bh-header"
           >
-            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+            <Typography
+              variant="h6"
+              sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
+            >
               What Is Included With My Purchase Of Mehraf?
             </Typography>
           </AccordionSummary>
