@@ -5,7 +5,7 @@ import Banner from "../Banner/Banner";
 import Discount from "../Discount/Discount";
 import Services from "../Services/Services";
 import WhyUs from "../WhyUs/WhyUs";
-
+import Faq from "../Faq/Faq"
 const Home = () => {
   return (
     <div>
@@ -15,6 +15,7 @@ const Home = () => {
       <Discount />
       {/* <WhyUs /> */}
       <Contact />
+      <Faq/>
     </div>
   );
 };
