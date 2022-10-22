@@ -1,6 +1,5 @@
 import React from "react";
-import ladies from "../../../Assets/images/woman.jpg";
-import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import it from "../../../Assets/images/it.png";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 const About = () => {
@@ -8,7 +7,11 @@ const About = () => {
     <div id="about">
       <div className="card lg:card-side bg-base-100 border lg:mx-40 mx-5">
         <figure>
-          <img src={ladies} alt="Album" />
+          <img
+            style={{ width: "500px", padding: "10px" }}
+            src={it}
+            alt="Album"
+          />
         </figure>
         <div className="card-body">
           <div style={{ color: "#0071e8" }}>
