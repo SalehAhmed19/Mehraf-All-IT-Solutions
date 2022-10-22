@@ -33,7 +33,6 @@ const Contact = () => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            transition: "flip",
           });
         },
         (error) => {
