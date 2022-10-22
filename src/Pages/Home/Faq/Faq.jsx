@@ -3,7 +3,8 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
+import { Box } from "@mui/material";
 
 export default function Faq() {
   const [expanded, setExpanded] = React.useState(false);
@@ -13,95 +14,114 @@ export default function Faq() {
   };
 
   return (
-    <div>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+    <Box sx={{margin:"3rem" , marginTop:"7rem"}}>
+      <Typography variant="h2" component="div" sx={{ textAlign: "center",marginBottom:"3rem" }}>
+        Frequently Asked Questions
+      </Typography>
+      <Box>
+        {" "}
+        <Accordion
+          disableGutters
+          expanded={expanded === "panel1"}
+          onChange={handleChange("panel1")}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            General settings
-          </Typography>
-          <Typography sx={{ color: "text.secondary" }}>
-            I am an accordion
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
+          <AccordionSummary
+            expandIcon={<AddIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+              Where Can I Get Support?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Hands-on support with our professional team of support experts is
+              accessible 24/7, and that includes an extensive library of
+              detailed documentation and video tutorials. To access support you
+              will need to register a support account by following these steps.
+              Once your support account is set up, you can submit support
+              tickets here. Learn how to navigate your support account Dashboard
+              here. Check to see if you are eligible for Grandfathered support.
+              For a detailed overview of our support policy please go here.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          disableGutters
+          expanded={expanded === "panel2"}
+          onChange={handleChange("panel2")}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>Users</Typography>
-          <Typography sx={{ color: "text.secondary" }}>
-            You are currently not an owner
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
+          <AccordionSummary
+            expandIcon={<AddIcon />}
+            aria-controls="panel2bh-content"
+            id="panel2bh-header"
+          >
+            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+              Are The Prebuilt Websites Fully Customizable?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Yes, each prebuilt website is 100% customizable. All prebuilt
+              websites are professionally designed by our in-house design team,
+              created to showcase Avada’s capabilities and save you time. Once
+              you import a prebuilt website, you can entirely customize the
+              content and layouts to your liking. You can add your own imagery,
+              change text, change colors or completely change any of the layouts
+              using the Avada Website Builder.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          disableGutters
+          expanded={expanded === "panel3"}
+          onChange={handleChange("panel3")}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            Advanced settings
-          </Typography>
-          <Typography sx={{ color: "text.secondary" }}>
-            Filtering has been entirely disabled for whole web server
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel4"}
-        onChange={handleChange("panel4")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
+          <AccordionSummary
+            expandIcon={<AddIcon />}
+            aria-controls="panel3bh-content"
+            id="panel3bh-header"
+          >
+            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+              Why Should I Trust{" "}
+              <Typography variant="h5" component="span" color="primary">
+                Mehraf All IT ?
+              </Typography>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Trust is a quality that we take great care to foster and maintain
+              by building long-term professional relationships that our
+              customers can rely on. Here are some important qualifiers:
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          disableGutters
+          expanded={expanded === "panel4"}
+          onChange={handleChange("panel4")}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            Personal data
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+          <AccordionSummary
+            expandIcon={<AddIcon />}
+            aria-controls="panel4bh-content"
+            id="panel4bh-header"
+          >
+            <Typography variant="h5" sx={{ width: "100%", flexShrink: 0 }}>
+              What Is Included With My Purchase Of Mehraf?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+              necessitatibus adipisci voluptatum iusto, placeat inventore
+              consectetur natus saepe similique corrupti quos ipsam
+              reprehenderit a, molestias optio, facilis mollitia cumque aliquam.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </Box>
+    </Box>
   );
 }
