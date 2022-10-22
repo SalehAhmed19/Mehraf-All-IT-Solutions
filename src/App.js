@@ -12,12 +12,8 @@ import VideoAnimation from "./Pages/Home/Services/VideoAnimation/VideoAnimation"
 import DigitalMarketing from "./Pages/Home/Services/DigitalMarketing/DigitalMarketing";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-<<<<<<< HEAD
 import Contact from "./Pages/Contact/Contact";
-=======
 import MobileAuth from "./Pages/MobileAuth/MobileAuth";
-
->>>>>>> d274cf075606b137022e93f923b8226e7445130a
 function App() {
   return (
     <div className="App" style={{ color: "#333333" }}>
