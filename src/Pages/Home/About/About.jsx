@@ -22,8 +22,8 @@ const About = () => {
             ></div>
           </div>
           <h2
-            style={{ fontFamily: "Fira sans" }}
-            className="text-5xl font-bold"
+            // style={{ fontFamily: "Fira sans" }}
+            className="text-3xl lg:text-5xl font-bold"
           >
             Choose <span style={{ color: "#0071e8" }}>The Best</span> IT <br />{" "}
             Services Here
