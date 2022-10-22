@@ -12,6 +12,8 @@ import VideoAnimation from "./Pages/Home/Services/VideoAnimation/VideoAnimation"
 import DigitalMarketing from "./Pages/Home/Services/DigitalMarketing/DigitalMarketing";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MobileAuth from "./Pages/MobileAuth/MobileAuth";
+
 function App() {
   return (
     <div className="App" style={{ color: "#333333" }}>
@@ -33,6 +35,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/mobileAuth" element={<MobileAuth />}></Route>
       </Routes>
       <Footer />
       <ToastContainer
