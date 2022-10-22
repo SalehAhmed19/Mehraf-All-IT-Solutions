@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -19,6 +19,14 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 //terms and conditions modal style
 const style = {
@@ -54,8 +62,13 @@ export default function SignUp() {
   const [password, setPassword] = React.useState("");
   const [mobile, setMobile] = React.useState(Number);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   //create user through email and password
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -425,43 +438,29 @@ export default function SignUp() {
                         />
                       </Grid>
                       <Grid item xs={11}>
-                        you agree to
-                        <Button onClick={handleOpen}>
-                          terms and privacy policy
-                        </Button>
-                        <Modal
-                          open={open}
-                          onClose={handleClose}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                        >
-                          <Box sx={style}>
-                            <Typography
-                              id="modal-modal-title"
-                              variant="h6"
-                              component="h2"
-                            >
-                              Terms and Privacy policy
-                            </Typography>
-                            <Typography
-                              id="modal-modal-description"
-                              sx={{ mt: 4 }}
-                            >
+                        <Box sx={{ margin: "7px" }}>
+                          you agree to
+                          <Button size="small" onClick={handleClickOpen}>
+                            terms and privacy policy
+                          </Button>
+                        </Box>
+                        <Dialog open={open} onClose={handleClose}>
+                          <DialogTitle>Terms and Privacy Policy</DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
                               Lorem ipsum dolor sit amet consectetur adipisicing
-                              elit. Maiores in autem nobis, iste tempora quos
-                              beatae soluta ut repellendus, quisquam accusantium
-                              qui? Atque nobis officia magnam in eos natus
-                              ratione, nam reprehenderit obcaecati error harum
-                              doloremque laboriosam quod debitis molestias.Lorem
-                              ipsum dolor sit amet consectetur adipisicing elit.
-                              Maiores in autem nobis, iste tempora quos beatae
-                              soluta ut repellendus, quisquam accusantium qui?
-                              Atque nobis officia magnam in eos natus ratione,
-                              nam reprehenderit obcaecati error harum doloremque
-                              laboriosam quod debitis molestias.
-                            </Typography>
-                          </Box>
-                        </Modal>
+                              elit. Tempora ut modi molestiae voluptates,
+                              perferendis a quisquam velit, laudantium
+                              accusantium repellat, architecto necessitatibus
+                              pariatur aliquid dignissimos iure quae ab
+                              consequuntur? Expedita!
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions>
+                            <Button onClick={handleClose}>Cancel</Button>
+                            <Button onClick={handleClose}>Agree</Button>
+                          </DialogActions>
+                        </Dialog>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -490,7 +489,10 @@ export default function SignUp() {
 
                 <Grid container justifyContent="flex-end">
                   <Grid item>
-                    <Link href="/login" variant="body2">
+                    <Link
+                      to="/login"
+                      className="text-xs lg:text-lg text-sky-600"
+                    >
                       Already have an account? Sign in
                     </Link>
                   </Grid>

@@ -4,7 +4,7 @@ import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init";
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,11 +19,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, useNavigate } from "react-router-dom";
-import Loading from "../../../Shared/Loading/Loading";
+import Loading from "../../Shared/Loading/Loading";
 import GoogleIcon from "@mui/icons-material/Google";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useForm } from "react-hook-form";
 import { hover } from "@testing-library/user-event/dist/hover";
+import auth from "../../firebase.init";
 function Copyright(props) {
   return (
     <Typography
@@ -37,8 +38,8 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
-  const [email, setEmail] = React.useState("");
+export default function MobileAuth() {
+  const [phone, setPhone] = React.useState("");
 
   //sign in with Google
   const [signInWithGoogle, gUser, loading, error] = useSignInWithGoogle(auth);
@@ -75,10 +76,6 @@ export default function SignIn() {
   const handleResetPassword = () => {
     // const email= e.target.email.value
     // console.log(email)
-
-    sendPasswordResetEmail(email);
-    console.log(email);
-    alert("email");
   };
 
   return (
@@ -107,16 +104,37 @@ export default function SignIn() {
               noValidate
               sx={{ mt: 1 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoFocus
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <div className="flex">
+                {" "}
+                <TextField
+                  sx={{
+                    boxShadow: "none",
+                    ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                    backgroundColor: "#D9DEE8",
+                  }}
+                  className="w-20 "
+                  margin="normal"
+                  required
+                  disabled
+                  id="phone"
+                  name="phone"
+                  value="+880"
+                  autoFocus
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <TextField
+                  sx={{ marginLeft: "2px" }}
+                  className="w-full"
+                  margin="normal"
+                  required
+                  id="phone"
+                  label="Phone"
+                  name="phone"
+                  type="number"
+                  autoFocus
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
               <TextField
                 margin="normal"
                 required
@@ -128,11 +146,6 @@ export default function SignIn() {
                 autoComplete="current-password"
                 helperText="Do not share your password"
               />
-
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -140,42 +153,18 @@ export default function SignIn() {
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
+              </Button>{" "}
+              <Button
+                size="small"
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 1, mb: 2 }}
+                onClick={() => signInWithGoogle()}
+              >
+                <GoogleIcon />{" "}
+                <span className="px-2 ">Continue with Google</span>
               </Button>
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  {" "}
-                  <Button
-                    size="small"
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 1, mb: 2 }}
-                    onClick={() => signInWithGoogle()}
-                  >
-                    <GoogleIcon />{" "}
-                    <span className="px-2 ">Continue with Google</span>
-                  </Button>
-                </Grid>
-                <Grid item xs={6}>
-                  <Button
-                    size="small"
-                    type="submit"
-                    fullWidth
-                    sx={{
-                      mt: 1,
-                      mb: 2,
-                      color: "#333333",
-                      backgroundColor: "#D9DEE8",
-                    }}
-                  >
-                    <PhoneIcon sx={{ color: "#2e7d32", padding: "1px" }} />{" "}
-                    <Link to="/mobileAuth">
-                      {" "}
-                      <span className="px-1 text-sm ">Continue with Phone</span>
-                    </Link>
-                  </Button>
-                </Grid>
-              </Grid>
               <Grid container>
                 <Grid item xs>
                   <Link
