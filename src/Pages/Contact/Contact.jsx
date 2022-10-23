@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React, { useRef } from "react";
-import contact from "../../Assets/images/contact3.png";
+import contact from "../../Assets/images/contact.png";
+import contact2 from "../../Assets/images/contact2.png";
 import emailjs from "@emailjs/browser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -46,11 +47,12 @@ const Contact = () => {
       <div className="rounded-lg flex items-center">
         <Fade left>
           <img
-            className="my-10 px-8 lg:mx-20"
-            style={{ width: "600px" }}
+            className="my-10 px-8 hidden lg:block"
+            style={{ width: "800px" }}
             src={contact}
             alt=""
           />
+          <img className="block lg:hidden p-8" src={contact2} alt="" />
         </Fade>
       </div>
       <Fade right>
