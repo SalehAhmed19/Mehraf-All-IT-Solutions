@@ -25,6 +25,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import { useForm } from "react-hook-form";
 import { hover } from "@testing-library/user-event/dist/hover";
 import auth from "../../firebase.init";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 function Copyright(props) {
   return (
     <Typography
@@ -39,36 +40,67 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function MobileAuth() {
-  const [phone, setPhone] = React.useState("");
+  let [phone, setPhone] = React.useState("");
+  const [error, setError] = React.useState("");
+  const [otp, setOtp] = React.useState("");
+  const [result, setResult] = React.useState("");
+  console.log(otp);
 
   //sign in with Google
-  const [signInWithGoogle, gUser, loading, error] = useSignInWithGoogle(auth);
-
-  //sign in with Email and Password
-  const [signInWithEmailAndPassword, emailuser, emailloading, emailerror] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, loading] = useSignInWithGoogle(auth);
 
   //password reset email
   const [sendPasswordResetEmail, sending, passwordError] =
     useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
 
-  if (gUser || emailuser) {
-    console.log(emailuser, gUser);
+  //setUpRecaptha
+  function setUpRecaptha(phone) {
+    const recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {},
+      auth
+    );
+    recaptchaVerifier.render();
+    return signInWithPhoneNumber(auth, phone, recaptchaVerifier);
+  }
+
+  const verifyOtp = async (e) => {
+    e.preventDefault();
+    console.log(otp);
+    setError("");
+    if (otp === "" || otp === null) return;
+    try {
+      await result.confirm(otp);
+      await navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  if (gUser) {
+    console.log(gUser);
     navigate("/");
   }
-  if (loading || emailloading) {
+  if (loading) {
     <Loading />;
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    phone = "+880" + phone;
 
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    console.log(phone);
+    setError("");
+    if (phone === "" || phone === undefined)
+      return setError("Please enter a valid phone number!");
+    try {
+      const response = await setUpRecaptha(phone);
 
-    //signin with email-password
-    signInWithEmailAndPassword(email, password);
+      setResult(response);
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   //send password reset email
@@ -84,7 +116,6 @@ export default function MobileAuth() {
         <CssBaseline />
         <>
           <Box
-            onSubmit={handleSubmit}
             sx={{
               marginTop: 8,
               display: "flex",
@@ -120,7 +151,6 @@ export default function MobileAuth() {
                   name="phone"
                   value="+880"
                   autoFocus
-                  onChange={(e) => setPhone(e.target.value)}
                 />
                 <TextField
                   sx={{ marginLeft: "2px" }}
@@ -130,22 +160,13 @@ export default function MobileAuth() {
                   id="phone"
                   label="Phone"
                   name="phone"
-                  type="number"
+                  type="text"
                   autoFocus
+                  defaultCountry="IN"
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                helperText="Do not share your password"
-              />
+              <div id="recaptcha-container"></div>
               <Button
                 type="submit"
                 fullWidth
@@ -183,6 +204,33 @@ export default function MobileAuth() {
                   </Link>
                 </Grid>
               </Grid>
+            </Box>
+            <Box sx={{ margin: "2rem" }}>
+              {" "}
+              {result && (
+                <form onSubmit={verifyOtp}>
+                  <TextField
+                    sx={{ marginLeft: "2px" }}
+                    className="w-full"
+                    margin="normal"
+                    required
+                    id="otp"
+                    label="Enter the OTP"
+                    name="otp"
+                    type="text"
+                    autoFocus
+                    onChange={(e) => setOtp(e.target.value)}
+                  />
+                  <Button
+                    size="small"
+                    fullWidth
+                    variant="contained"
+                    type="submit"
+                  >
+                    Verify OTP
+                  </Button>
+                </form>
+              )}
             </Box>
           </Box>
         </>
