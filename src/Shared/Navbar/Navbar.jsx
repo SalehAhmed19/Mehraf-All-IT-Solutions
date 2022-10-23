@@ -23,15 +23,27 @@ import { Button } from "@mui/material";
 const pages = [
   {
     _id: 1,
-    name: "Product",
-    route: "/product",
-    href: "#product",
+    name: "About",
+    route: "/about",
+    href: "#about",
   },
   {
     _id: 2,
+    name: "Services",
+    route: "/services",
+    href: "#services",
+  },
+  {
+    _id: 3,
     name: "Contact",
     route: "/contact",
     href: "#contact",
+  },
+  {
+    _id: 4,
+    name: "FAQ",
+    route: "/faq",
+    href: "#faq",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -99,7 +111,9 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page._id} onClick={handleCloseNavMenu}>
-                  <Link to={page.route}>{page.name}</Link>
+                  {/* <Link to={page.route}> */}
+                  <a href={page.href}>{page.name}</a>
+                  {/* </Link> */}
                 </MenuItem>
               ))}
             </Menu>
@@ -112,18 +126,20 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link
-                className="px-4"
-                key={page._id}
-                to={page.route}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
+              // <Link
+              //   className="px-4"
+              //   key={page._id}
+              //   to={page.route}
+              //   onClick={handleCloseNavMenu}
+              //   sx={{ my: 2, color: "white", display: "block" }}
+              // >
+              <a className="px-4" href={page.href}>
                 {page.name}
-              </Link>
+              </a>
+              // </Link>
             ))}
           </Box>
-          <SearchBar />
+          {/* <SearchBar /> */}
           <Box sx={{ flexGrow: 0 }}>
             {user ? (
               <Box>

@@ -8,7 +8,7 @@ import graphicDesign from "../../../Assets/images/graphicdesign.png"
 import webDevelopment from "../../../Assets/images/webdevelopment.png";
 import digitalMarketing from "../../../Assets/images/digitalmarketing.png";
 import videoEditing from "../../../Assets/images/videoEditing.png";
-import { Flip } from "react-reveal";
+import { Zoom } from "react-reveal";
 
 const Services = () => {
   const data = [
@@ -67,7 +67,7 @@ const Services = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-5 lg:mx-40">
         {data.map((d) => (
-          <Flip>
+          <Zoom>
             <Card
               sx={{
                 bgcolor: "initial",
@@ -139,7 +139,7 @@ const Services = () => {
                 </Typography>
               </Box>
             </Card>
-          </Flip>
+          </Zoom>
         ))}
         <div></div>
       </div>
