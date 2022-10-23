@@ -1,31 +1,14 @@
 import React from "react";
-// import PaletteIcon from "@mui/icons-material/Palette";
-// import AspectRatio from "@mui/joy/AspectRatio";
-// import Avatar from "@mui/joy/Avatar";
-// import Box from "@mui/joy/Box";
-// import Card from "@mui/joy/Card";
-// import IconButton from "@mui/joy/IconButton";
-// import Typography from "@mui/joy/Typography";
-// // import Link from "@mui/joy/Link";
-// import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-// import WebIcon from "@mui/icons-material/Web";
-// import AnimationIcon from "@mui/icons-material/Animation";
-// import QueryStatsIcon from "@mui/icons-material/QueryStats";
-// import { Link } from "react-router-dom";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
-import IconButton from "@mui/joy/IconButton";
 import Typography from "@mui/joy/Typography";
-import Link from "@mui/joy/Link";
-import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-import { CreateNewFolder, Favorite, Visibility } from "@mui/icons-material";
-import { CardCover, Chip } from "@mui/joy";
-import graphicdesign from "../../../Assets/images/graphicdesign.png";
-import webdevelopment from "../../../Assets/images/webdevelopment.png";
-import digitalmarketing from "../../../Assets/images/digitalmarketing.png";
-import videoediting from "../../../Assets/images/videoedit.png";
+import { CardCover } from "@mui/joy";
+import graphicDesign from "../../../Assets/images/graphicDesign.png";
+import webDevelopment from "../../../Assets/images/webDevelopment.png";
+import digitalMarketing from "../../../Assets/images/digitalMarketing.png";
+import videoEditing from "../../../Assets/images/videoEditing.png";
+import { Flip } from "react-reveal";
 
 const Services = () => {
   const data = [
@@ -33,7 +16,7 @@ const Services = () => {
       _id: 1,
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: graphicdesign,
+      img: graphicDesign,
       // icon: <PaletteIcon style={{ fontSize: "80px" }} />,
       route: "/graphic-design",
     },
@@ -41,7 +24,7 @@ const Services = () => {
       _id: 2,
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: webdevelopment,
+      img: webDevelopment,
       // icon: <WebIcon style={{ fontSize: "80px" }} />,
       route: "/web-development",
     },
@@ -49,7 +32,7 @@ const Services = () => {
       _id: 3,
       title: "Video & Animation",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: videoediting,
+      img: videoEditing,
       // icon: <AnimationIcon style={{ fontSize: "80px" }} />,
       route: "/video-animation",
     },
@@ -57,7 +40,7 @@ const Services = () => {
       _id: 4,
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      img: digitalmarketing,
+      img: digitalMarketing,
       // icon: <QueryStatsIcon style={{ fontSize: "80px" }} />,
       route: "/digital-marketing",
     },
@@ -84,77 +67,79 @@ const Services = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-5 lg:mx-40">
         {data.map((d) => (
-          <Card
-            sx={{
-              bgcolor: "initial",
-              boxShadow: "none",
-              "--Card-padding": "0px",
-            }}
-          >
-            <Box sx={{ position: "relative" }}>
-              <AspectRatio ratio="4/3">
-                <figure>
-                  <img src={d.img} alt="" />
-                </figure>
-              </AspectRatio>
-              <CardCover
-                className="gradient-cover"
-                sx={{
-                  "&:hover, &:focus-within": {
-                    opacity: 1,
-                  },
-                  opacity: 0,
-                  transition: "0.1s ease-in",
-                  background:
-                    "linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.00345888) 63.94%, rgba(0,0,0,0.014204) 65.89%, rgba(0,0,0,0.0326639) 67.83%, rgba(0,0,0,0.0589645) 69.78%, rgba(0,0,0,0.0927099) 71.72%, rgba(0,0,0,0.132754) 73.67%, rgba(0,0,0,0.177076) 75.61%, rgba(0,0,0,0.222924) 77.56%, rgba(0,0,0,0.267246) 79.5%, rgba(0,0,0,0.30729) 81.44%, rgba(0,0,0,0.341035) 83.39%, rgba(0,0,0,0.367336) 85.33%, rgba(0,0,0,0.385796) 87.28%, rgba(0,0,0,0.396541) 89.22%, rgba(0,0,0,0.4) 91.17%)",
-                }}
-              >
-                {/* The first box acts as a container that inherits style from the CardCover */}
-                <Box>
-                  <Box
-                    sx={{
-                      p: 2,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: 1.5,
-                      flexGrow: 1,
-                      alignSelf: "flex-end",
-                    }}
-                  >
-                    {/* <Typography level="h2" noWrap sx={{ fontSize: "lg" }}>
-                      <Link
-                        href="#dribbble-shot"
-                        overlay
-                        underline="none"
-                        sx={{
-                          color: "#fff",
-                          textOverflow: "ellipsis",
-                          overflow: "hidden",
-                          display: "block",
-                        }}
-                      >
-                        {d.title}
-                      </Link>
-                    </Typography> */}
-                  </Box>
-                </Box>
-              </CardCover>
-            </Box>
-            <Box
+          <Flip>
+            <Card
               sx={{
-                display: "flex",
-                gap: 1,
-                mt: 1.5,
-                alignItems: "center",
-                justifyContent: "center",
+                bgcolor: "initial",
+                boxShadow: "none",
+                "--Card-padding": "0px",
               }}
             >
-              <Typography sx={{ fontSize: "lg", fontWeight: "lg" }}>
-                {d.title}
-              </Typography>
-            </Box>
-          </Card>
+              <Box sx={{ position: "relative" }}>
+                <AspectRatio ratio="4/3">
+                  <figure>
+                    <img src={d.img} alt="" />
+                  </figure>
+                </AspectRatio>
+                <CardCover
+                  className="gradient-cover"
+                  sx={{
+                    "&:hover, &:focus-within": {
+                      opacity: 1,
+                    },
+                    opacity: 0,
+                    transition: "0.1s ease-in",
+                    background:
+                      "linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.00345888) 63.94%, rgba(0,0,0,0.014204) 65.89%, rgba(0,0,0,0.0326639) 67.83%, rgba(0,0,0,0.0589645) 69.78%, rgba(0,0,0,0.0927099) 71.72%, rgba(0,0,0,0.132754) 73.67%, rgba(0,0,0,0.177076) 75.61%, rgba(0,0,0,0.222924) 77.56%, rgba(0,0,0,0.267246) 79.5%, rgba(0,0,0,0.30729) 81.44%, rgba(0,0,0,0.341035) 83.39%, rgba(0,0,0,0.367336) 85.33%, rgba(0,0,0,0.385796) 87.28%, rgba(0,0,0,0.396541) 89.22%, rgba(0,0,0,0.4) 91.17%)",
+                  }}
+                >
+                  {/* The first box acts as a container that inherits style from the CardCover */}
+                  <Box>
+                    <Box
+                      sx={{
+                        p: 2,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: 1.5,
+                        flexGrow: 1,
+                        alignSelf: "flex-end",
+                      }}
+                    >
+                      {/* <Typography level="h2" noWrap sx={{ fontSize: "lg" }}>
+                    <Link
+                      href="#dribbble-shot"
+                      overlay
+                      underline="none"
+                      sx={{
+                        color: "#fff",
+                        textOverflow: "ellipsis",
+                        overflow: "hidden",
+                        display: "block",
+                      }}
+                    >
+                      {d.title}
+                    </Link>
+                  </Typography> */}
+                    </Box>
+                  </Box>
+                </CardCover>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 1,
+                  mt: 1.5,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography sx={{ fontSize: "lg", fontWeight: "lg" }}>
+                  {d.title}
+                </Typography>
+              </Box>
+            </Card>
+          </Flip>
         ))}
         <div></div>
       </div>
