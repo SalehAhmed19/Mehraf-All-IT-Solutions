@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "../../Assets/images/logo.png";
-import bg from "../../Assets/images/banner.png";
+import logo from "../../Assets/images/B&W.png";
 
 const Footer = () => {
   return (
@@ -11,7 +10,7 @@ const Footer = () => {
           viewBox="0 0 1200 120"
           xmlns="http://www.w3.org/2000/svg"
           style={{
-            fill: "#a0bdf8",
+            fill: "#5E3091",
             width: "100%",
             height: 75,
             transform: "rotate(180deg)",
@@ -28,7 +27,7 @@ const Footer = () => {
           <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
         </svg>
       </div>
-      <div style={{ background: "linear-gradient(#a0bef8, #1565c0)" }}>
+      <div style={{ background: "#5e3091" }}>
         <footer className="footer p-10 text-slate-200">
           <div>
             <span className="font-bold text-xl">Services</span>
