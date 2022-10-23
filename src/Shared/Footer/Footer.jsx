@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../Assets/images/B&W.png";
 
 const Footer = () => {
@@ -31,45 +32,54 @@ const Footer = () => {
         <footer className="footer p-10 text-slate-200">
           <div>
             <span className="font-bold text-xl">Services</span>
-            <a href="" className="link link-hover">
-              Branding
-            </a>
-            <a href="" className="link link-hover">
-              Design
-            </a>
-            <a href="" className="link link-hover">
-              Marketing
-            </a>
-            <a href="" className="link link-hover">
-              Advertisement
-            </a>
+            <Link to="" className="link link-hover">
+              Graphics Design
+            </Link>
+            <Link to="" className="link link-hover">
+              Web Design & Development
+            </Link>
+            <Link to="" className="link link-hover">
+              Video & Animation
+            </Link>
+            <Link to="" className="link link-hover">
+              Digital Marketing
+            </Link>
           </div>
           <div>
             <span className="font-bold text-xl">Company</span>
-            <a href="" className="link link-hover">
+            <Link to="" className="link link-hover">
               About us
-            </a>
-            <a href="" className="link link-hover">
+            </Link>
+            <Link to="/contact" className="link link-hover">
               Contact
-            </a>
-            <a href="" className="link link-hover">
+            </Link>
+            <Link to="" className="link link-hover">
               Jobs
-            </a>
-            <a href="" className="link link-hover">
+            </Link>
+            <Link to="" className="link link-hover">
               Press kit
-            </a>
+            </Link>
           </div>
           <div>
-            <span className="font-bold text-xl">Legal</span>
-            <a href="" className="link link-hover">
+            <span className="font-bold text-xl">Contact</span>
+            {/* <Link to="" className="link link-hover">
               Terms of use
-            </a>
-            <a href="" className="link link-hover">
+            </Link>
+            <Link to="" className="link link-hover">
               Privacy policy
-            </a>
-            <a href="" className="link link-hover">
+            </Link>
+            <Link to="" className="link link-hover">
               Cookie policy
-            </a>
+            </Link> */}
+            <p>
+              <span className="font-bold">Mobile:</span> +8801700-000000
+            </p>
+            <p>
+              <span className="font-bold">Email:</span> mehraf.ais@gmail.com
+            </p>
+            <p>
+              <span className="font-bold">Address:</span> Bogura-5800
+            </p>
           </div>
         </footer>
         <footer className="footer px-10 py-4 text-slate-200">
