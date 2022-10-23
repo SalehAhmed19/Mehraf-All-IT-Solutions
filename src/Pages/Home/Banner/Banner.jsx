@@ -1,7 +1,7 @@
 import React from "react";
 import "./Banner.css";
 import banner from "../../../Assets/images/bg.png";
-import Typical from "react-typical";
+import Typewriter from "typewriter-effect";
 
 const Banner = () => {
   return (
@@ -11,12 +11,15 @@ const Banner = () => {
         style={{ color: "#0071e8" }}
       >
         <div className="flex flex-col justify-center items-center h-96 lg:h-auto">
-          <Typical
-            className="text-4xl md:text-5xl lg:text-6xl font-bold"
-            steps={["MEHRAF", 1000, "ALL IT SOLUTIONS", 500]}
-            loop={Infinity}
-            wrapper="p"
-          />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            <Typewriter
+              options={{
+                strings: ["MEHRAF", "ALL IT SOLUTIONS"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </h1>
           <p className="py-3">Choose the best IT services from here.</p>
           <button
             style={{ color: "#0071e8" }}
