@@ -40,7 +40,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function MobileAuth() {
-  const [phone, setPhone] = React.useState("");
+  let [phone, setPhone] = React.useState("");
   const [error, setError] = React.useState("");
   const [otp, setOtp] = React.useState("");
   const [result, setResult] = React.useState("");
@@ -88,6 +88,8 @@ export default function MobileAuth() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    phone = "+880" + phone;
+
     console.log(phone);
     setError("");
     if (phone === "" || phone === undefined)
@@ -164,17 +166,6 @@ export default function MobileAuth() {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              {/* <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                helperText="Do not share your password"
-              /> */}
               <div id="recaptcha-container"></div>
               <Button
                 type="submit"
@@ -214,7 +205,7 @@ export default function MobileAuth() {
                 </Grid>
               </Grid>
             </Box>
-            <Box sx={{margin:"2px"}}>
+            <Box sx={{ margin: "2rem" }}>
               {" "}
               {result && (
                 <form onSubmit={verifyOtp}>
