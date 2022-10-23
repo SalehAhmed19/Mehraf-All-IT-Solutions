@@ -76,10 +76,11 @@ const Footer = () => {
           <div className="items-center grid-flow-col">
             <img className="h-10" src={logo} alt="" />
             <p>
-              <span className="font-bold">Mehraf All IT Solutions.</span> <br />
+              <span className="font-bold">MEHRAF ALL IT SOLUTIONS.</span> <br />
               Established in 2022
               <br />
-              &copy; Developed by <span className="font-bold">BugsBytes</span>
+              &copy; All Rights Reserved by{" "}
+              <span className="font-bold">MEHRAF</span>
             </p>
           </div>
           <div className="md:place-self-center md:justify-self-end">

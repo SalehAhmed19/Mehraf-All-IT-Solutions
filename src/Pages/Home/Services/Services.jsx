@@ -150,7 +150,7 @@ const Services = () => {
                 justifyContent: "center",
               }}
             >
-              <Typography sx={{ fontSize: "lg", fontWeight: "md" }}>
+              <Typography sx={{ fontSize: "lg", fontWeight: "lg" }}>
                 {d.title}
               </Typography>
             </Box>
