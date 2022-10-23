@@ -4,10 +4,10 @@ import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import { CardCover } from "@mui/joy";
-import graphicDesign from "../../../Assets/images/graphicDesign.png";
-import webDevelopment from "../../../Assets/images/webDevelopment.png";
-import digitalMarketing from "../../../Assets/images/digitalMarketing.png";
-import videoEditing from "../../../Assets/images/videoEditing.png";
+import graphicDesign from "../../../Assets/images/graphicdesign.png";
+import webDevelopment from "../../../Assets/images/webdevelopment.png";
+import digitalMarketing from "../../../Assets/images/digitalmarketing.png";
+import videoEditing from "../../../Assets/images/videoediting.png";
 import { Zoom } from "react-reveal";
 
 const Services = () => {
