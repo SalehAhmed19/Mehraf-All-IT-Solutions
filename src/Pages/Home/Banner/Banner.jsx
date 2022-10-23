@@ -29,7 +29,11 @@ const Banner = () => {
           </button>
         </div>
         <div className="hidden lg:block">
-          <img className="" src={banner} alt="" />
+          <img
+            style={{ width: "650px", margin: "20px 0" }}
+            src={banner}
+            alt=""
+          />
         </div>
       </div>
     </>
