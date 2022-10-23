@@ -17,7 +17,6 @@ const Services = () => {
       title: "Graphics Design",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: graphicDesign,
-      // icon: <PaletteIcon style={{ fontSize: "80px" }} />,
       route: "/graphic-design",
     },
     {
@@ -25,7 +24,6 @@ const Services = () => {
       title: "Web Development",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: webDevelopment,
-      // icon: <WebIcon style={{ fontSize: "80px" }} />,
       route: "/web-development",
     },
     {
@@ -33,7 +31,6 @@ const Services = () => {
       title: "Video & Animation",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: videoEditing,
-      // icon: <AnimationIcon style={{ fontSize: "80px" }} />,
       route: "/video-animation",
     },
     {
@@ -41,7 +38,6 @@ const Services = () => {
       title: "Digital Marketing",
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: digitalMarketing,
-      // icon: <QueryStatsIcon style={{ fontSize: "80px" }} />,
       route: "/digital-marketing",
     },
   ];
