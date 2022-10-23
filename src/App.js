@@ -17,7 +17,7 @@ import MobileAuth from "./Pages/MobileAuth/MobileAuth";
 import AnimatedCursor from "react-animated-cursor";
 function App() {
   return (
-    <div className="App" style={{ color: "#333333" }}>
+    <div className="App" style={{ color: "#333333", cursor: "auto" }}>
       <AnimatedCursor
         innerSize={10}
         outerSize={27}
