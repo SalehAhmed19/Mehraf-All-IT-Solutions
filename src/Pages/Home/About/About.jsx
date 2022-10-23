@@ -56,7 +56,8 @@ const About = () => {
                 <div className="grid h-20 flex-grow card place-items-center">
                   <p className="font-bold">
                     Moneyback <br />
-                    Guarantee
+                    Guarantee <br />
+                    <small style={{ color: "#1876D1" }}>(Conditional)</small>
                   </p>
                 </div>
               </div>
