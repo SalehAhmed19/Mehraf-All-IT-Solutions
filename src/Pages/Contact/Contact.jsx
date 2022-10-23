@@ -42,8 +42,13 @@ const Contact = () => {
   };
   return (
     <div className="mx-10 border rounded-lg my-5 grid grid-cols-1 lg:grid-cols-2">
-      <div className="rounded-lg">
-        <img className="py-10" src={contact} alt="" />
+      <div className="rounded-lg flex items-center">
+        <img
+          className="my-10 px-8 lg:mx-20"
+          style={{ width: "600px" }}
+          src={contact}
+          alt=""
+        />
       </div>
       <div className="flex flex-col m-2 lg:m-10">
         <h2
