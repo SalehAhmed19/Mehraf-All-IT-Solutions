@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import { hover } from "@testing-library/user-event/dist/hover";
 import auth from "../../firebase.init";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { toast } from "react-toastify";
 function Copyright(props) {
   return (
     <Typography
@@ -37,7 +38,17 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#7b1fa2",
+    },
+    secondary: {
+      light: "#0066ff",
+      main: "#0044ff",
+    },
+  },
+});
 
 export default function MobileAuth() {
   let [phone, setPhone] = React.useState("");
@@ -70,6 +81,9 @@ export default function MobileAuth() {
     console.log(otp);
     setError("");
     if (otp === "" || otp === null) return;
+    if (result) {
+      toast.success("Verified your OTP");
+    }
     try {
       await result.confirm(otp);
       await navigate("/");
@@ -103,13 +117,6 @@ export default function MobileAuth() {
     }
   };
 
-  //send password reset email
-
-  const handleResetPassword = () => {
-    // const email= e.target.email.value
-    // console.log(email)
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -123,7 +130,7 @@ export default function MobileAuth() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#0071E8" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#7b1fa2" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -175,6 +182,7 @@ export default function MobileAuth() {
               >
                 Sign In
               </Button>{" "}
+              <div className="text-red-900 font-semibold">{error}</div>
               <Button
                 size="small"
                 type="submit"
@@ -187,17 +195,9 @@ export default function MobileAuth() {
                 <span className="px-2 ">Continue with Google</span>
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link
-                    className="text-xs text-sky-600 lg:text-sm"
-                    onClick={(e) => handleResetPassword()}
-                  >
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
                   <Link
-                    className="text-xs  text-sky-600 lg:text-sm"
+                    className="text-xs  text-purple-900 font-bold lg:text-sm"
                     to="/register"
                   >
                     {"Don't have an account? Sign Up"}

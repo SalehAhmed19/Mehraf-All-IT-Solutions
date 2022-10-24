@@ -51,8 +51,17 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#7b1fa2",
+    },
+    secondary: {
+      light: "#0066ff",
+      main: "#0044ff",
+    },
+  },
+});
 export default function SignUp() {
   const [open, setOpen] = React.useState(false);
   const [acceptTnc, setAcceptTnc] = React.useState(false);
@@ -109,178 +118,12 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "#0071E8" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#7b1fa2" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          {/* <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  error={!firstName}
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  onChange={(e) => setFirstName(e.target.value)}
-                  helperText={!firstName ? "Required" : ""}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  error={!lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  error={!email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  helperText={!email ? "Required" : ""}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  error={!mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  fullWidth
-                  id="mobile"
-                  type="number"
-                  label="Mobile number"
-                  name="mobile"
-                  autoComplete="off"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  error={!password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  helperText={
-                    !password ? "Required" : "Don't share your password"
-                  }
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="confirmPassword"
-                  label="Confirm Password"
-                  type="password"
-                  id="confirmPassword"
-                  autoComplete="confirmPassword"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                {" "}
-                <Grid container>
-                  <Grid item xs={1}>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={acceptTnc}
-                          onChange={handleChange}
-                          color="primary"
-                        />
-                      }
-                    />
-                  </Grid>
-                  <Grid item xs={11}>
-                    you agree to
-                    <Button onClick={handleOpen}>
-                      terms and privacy policy
-                    </Button>
-                    <Modal
-                      open={open}
-                      onClose={handleClose}
-                      aria-labelledby="modal-modal-title"
-                      aria-describedby="modal-modal-description"
-                    >
-                      <Box sx={style}>
-                        <Typography
-                          id="modal-modal-title"
-                          variant="h6"
-                          component="h2"
-                        >
-                          Terms and Privacy policy
-                        </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 4 }}>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Maiores in autem nobis, iste tempora quos beatae
-                          soluta ut repellendus, quisquam accusantium qui? Atque
-                          nobis officia magnam in eos natus ratione, nam
-                          reprehenderit obcaecati error harum doloremque
-                          laboriosam quod debitis molestias.Lorem ipsum dolor
-                          sit amet consectetur adipisicing elit. Maiores in
-                          autem nobis, iste tempora quos beatae soluta ut
-                          repellendus, quisquam accusantium qui? Atque nobis
-                          officia magnam in eos natus ratione, nam reprehenderit
-                          obcaecati error harum doloremque laboriosam quod
-                          debitis molestias.
-                        </Typography>
-                      </Box>
-                    </Modal>
-                  </Grid>
-                </Grid>
-              </Grid>
-              {acceptTnc ? (
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign Up
-                </Button>
-              ) : (
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  disabled
-                >
-                  Sign Up
-                </Button>
-              )}
-            </Grid>
-
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </Box> */}
 
           <Box>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -491,7 +334,7 @@ export default function SignUp() {
                   <Grid item>
                     <Link
                       to="/login"
-                      className="text-xs lg:text-lg text-sky-600"
+                      className="text-xs lg:text-lg  text-purple-800 font-bold"
                     >
                       Already have an account? Sign in
                     </Link>
