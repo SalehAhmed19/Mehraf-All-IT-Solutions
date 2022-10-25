@@ -51,7 +51,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [user, loading, error] = useAuthState(auth);
- 
+
   const logout = () => {
     signOut(auth);
   };
@@ -145,9 +145,12 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             {user ? (
               <Box>
-                <Tooltip title="Open settings">
+                <Tooltip title="User">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                    <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                    <Avatar
+                      alt={user?.displayName?.toLocaleUpperCase()}
+                      src={user?.photoURL}
+                    />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Logout">
