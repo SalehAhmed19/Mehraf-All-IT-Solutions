@@ -14,6 +14,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Contact from "./Pages/Contact/Contact";
 import MobileAuth from "./Pages/MobileAuth/MobileAuth";
+import AnimatedCursor from "react-animated-cursor";
+
 function App() {
   return (
     <div className="App" style={{ color: "#333333", cursor: "auto" }}>
@@ -51,6 +53,28 @@ function App() {
         draggable
         pauseOnHover
         theme="light"
+      />
+      <AnimatedCursor
+        innerSize={10}
+        outerSize={27}
+        color="1, 113, 232"
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={3}
+        // trailingSpeed={5}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
       />
     </div>
   );
