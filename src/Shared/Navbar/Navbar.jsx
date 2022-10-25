@@ -20,6 +20,7 @@ import auth from "../../firebase.init";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Button } from "@mui/material";
+import { toast } from "react-toastify";
 const pages = [
   {
     _id: 1,
@@ -50,6 +51,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [user, loading, error] = useAuthState(auth);
+ 
   const logout = () => {
     signOut(auth);
   };

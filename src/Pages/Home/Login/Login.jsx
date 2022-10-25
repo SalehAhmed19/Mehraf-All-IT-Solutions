@@ -22,8 +22,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../../Shared/Loading/Loading";
 import GoogleIcon from "@mui/icons-material/Google";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { useForm } from "react-hook-form";
-import { hover } from "@testing-library/user-event/dist/hover";
+
+import { toast, ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 function Copyright(props) {
   return (
     <Typography
@@ -35,8 +37,17 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#7b1fa2",
+    },
+    secondary: {
+      light: "#0066ff",
+      main: "#0044ff",
+    },
+  },
+});
 export default function SignIn() {
   const [email, setEmail] = React.useState("");
 
@@ -55,6 +66,7 @@ export default function SignIn() {
   if (gUser || emailuser) {
     console.log(emailuser, gUser);
     navigate("/");
+    toast.success("successfully logged in");
   }
   if (loading || emailloading) {
     <Loading />;
@@ -70,15 +82,16 @@ export default function SignIn() {
     signInWithEmailAndPassword(email, password);
   };
 
-  //send password reset email
+  //send password reset email if user forget the password
 
   const handleResetPassword = () => {
-    // const email= e.target.email.value
-    // console.log(email)
-
     sendPasswordResetEmail(email);
     console.log(email);
-    alert("email");
+    if (!email) {
+      toast.error("Enter Your Email");
+    } else if (email) {
+      toast.success("Reset Your Password");
+    }
   };
 
   return (
@@ -95,7 +108,7 @@ export default function SignIn() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#0071E8" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#7b1fa2" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -115,6 +128,9 @@ export default function SignIn() {
                 label="Email Address"
                 name="email"
                 autoFocus
+                inputProps={{
+                  autoComplete: "off",
+                }}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
@@ -179,7 +195,7 @@ export default function SignIn() {
               <Grid container>
                 <Grid item xs>
                   <Link
-                    className="text-xs text-sky-600 lg:text-sm"
+                    className="text-xs text-purple-900 font-bold lg:text-sm"
                     onClick={(e) => handleResetPassword()}
                   >
                     Forgot password?
@@ -187,7 +203,7 @@ export default function SignIn() {
                 </Grid>
                 <Grid item>
                   <Link
-                    className="text-xs  text-sky-600 lg:text-sm"
+                    className="text-xs  text-purple-900 font-bold lg:text-sm"
                     to="/register"
                   >
                     {"Don't have an account? Sign Up"}
