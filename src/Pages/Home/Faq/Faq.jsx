@@ -15,7 +15,7 @@ export default function Faq() {
   };
 
   return (
-    <div id="faq">
+    <div id="faq" className="my-28">
       <Box sx={{ margin: "3rem", marginTop: "7rem" }}>
         <Fade left>
           <Typography

@@ -5,7 +5,7 @@ import EngineeringIcon from "@mui/icons-material/Engineering";
 import { Slide, Zoom } from "react-reveal";
 const About = () => {
   return (
-    <div id="about">
+    <div id="about" className="my-28">
       <div className="card lg:card-side bg-base-100 border lg:mx-40 mx-5">
         <figure>
           <Zoom>

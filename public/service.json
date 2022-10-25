@@ -1,0 +1,30 @@
+[
+    {
+      "_id": 1,
+      "title": "Graphics Design",
+      "des": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "img": "https://i.ibb.co/NNmjFtv/graphicdesign.png",
+      "route": "/graphic-design"
+    },
+    {
+      "_id": 2,
+      "title": "Web Development",
+      "des": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "img": "https://i.ibb.co/p0K3NWg/webdevelopment.png",
+      "route": "/web-development"
+    },
+    {
+      "_id": 3,
+      "title": "Video & Animation",
+      "des": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "img": "https://i.ibb.co/64ZN839/videoediting.png",
+      "route": "/video-animation"
+    },
+    {
+      "_id": 4,
+      "title": "Digital Marketing",
+      "des": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "img": "https://i.ibb.co/RpJHH8F/digitalmarketing.png",
+      "route": "/digital-marketing"
+    }
+  ]
