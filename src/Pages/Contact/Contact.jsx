@@ -45,7 +45,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="mx-10 border rounded-lg my-5 grid grid-cols-1 lg:grid-cols-2"
+      className="mx-10 my-5 lg:my-28 border rounded-lg grid grid-cols-1 lg:grid-cols-2"
     >
       <div className="rounded-lg flex items-center">
         <Fade left>

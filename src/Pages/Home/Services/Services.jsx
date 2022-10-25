@@ -3,12 +3,17 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
-import { CardCover } from "@mui/joy";
+import { Button, CardCover, IconButton } from "@mui/joy";
 import graphicDesign from "../../../Assets/images/graphicdesign.png";
 import webDevelopment from "../../../Assets/images/webdevelopment.png";
 import digitalMarketing from "../../../Assets/images/digitalmarketing.png";
 import videoEditing from "../../../Assets/images/videoediting.png";
 import { Zoom } from "react-reveal";
+import { BookmarkAdd } from "@mui/icons-material";
+import CodeOffIcon from "@mui/icons-material/CodeOff";
+import PaletteIcon from "@mui/icons-material/Palette";
+import MovieFilterIcon from "@mui/icons-material/MovieFilter";
+import InsightsIcon from "@mui/icons-material/Insights";
 
 const Services = () => {
   const data = [
@@ -18,6 +23,7 @@ const Services = () => {
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: graphicDesign,
       route: "/graphic-design",
+      icon: <PaletteIcon />,
     },
     {
       _id: 2,
@@ -25,6 +31,7 @@ const Services = () => {
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: webDevelopment,
       route: "/web-development",
+      icon: <CodeOffIcon />,
     },
     {
       _id: 3,
@@ -32,6 +39,7 @@ const Services = () => {
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: videoEditing,
       route: "/video-animation",
+      icon: <MovieFilterIcon />,
     },
     {
       _id: 4,
@@ -39,8 +47,15 @@ const Services = () => {
       des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       img: digitalMarketing,
       route: "/digital-marketing",
+      icon: <InsightsIcon />,
     },
   ];
+  // const [services, setServices] = useState([]);
+  // useEffect(() => {
+  //   fetch("service.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setServices(data));
+  // }, [services]);
   return (
     <div
       id="services"
@@ -61,7 +76,7 @@ const Services = () => {
           Choose the best service from us. We can do what you need.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-5 lg:mx-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-24 lg:mx-40">
         {data.map((d) => (
           <Zoom>
             <Card
