@@ -14,21 +14,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Contact from "./Pages/Contact/Contact";
 import MobileAuth from "./Pages/MobileAuth/MobileAuth";
-import AnimatedCursor from "react-animated-cursor";
 function App() {
   return (
     <div className="App" style={{ color: "#333333", cursor: "auto" }}>
-      <div className="z-10">
-        <AnimatedCursor
-          innerSize={10}
-          outerSize={27}
-          color="1, 113, 232"
-          outerAlpha={0.2}
-          innerScale={0.7}
-          outerScale={3}
-          // trailingSpeed={5}
-        />
-      </div>
+      <div className="z-10"></div>
       <FloatingWhatsApp
         phoneNumber="+8801773120528"
         accountName="Mehraf All IT Solutions"
