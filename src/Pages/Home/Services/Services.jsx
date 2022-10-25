@@ -84,6 +84,7 @@ const Services = () => {
                 width: 280,
                 color: "#5E3091",
                 margin: "0 auto",
+                backgroundColor: "#F7F7F7",
               }}
             >
               <div className="p-2 bg-white rounded-full w-16 mx-auto mb-3">
