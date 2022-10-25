@@ -28,6 +28,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 import Loading from "../../../Shared/Loading/Loading";
+import { toast } from "react-toastify";
 
 //terms and conditions modal style
 const style = {
@@ -87,6 +88,7 @@ export default function SignUp() {
     <Loading />;
   }
   if (user) {
+    toast.success("Successfully registered");
     navigate("/");
   }
 
