@@ -19,7 +19,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogActions,
@@ -27,6 +27,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import Loading from "../../../Shared/Loading/Loading";
 
 //terms and conditions modal style
 const style = {
@@ -65,12 +66,7 @@ const theme = createTheme({
 export default function SignUp() {
   const [open, setOpen] = React.useState(false);
   const [acceptTnc, setAcceptTnc] = React.useState(false);
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [mobile, setMobile] = React.useState(Number);
-
+  const navigate = useNavigate();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -87,24 +83,37 @@ export default function SignUp() {
     setAcceptTnc(e.target.checked);
     console.log(acceptTnc, e);
   };
+  if (loading) {
+    <Loading />;
+  }
+  if (user) {
+    navigate("/");
+  }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const email = event.target.email.value;
-  //   const password = event.target.password.value;
-  //   // const firstName = event.target.value;
-  //   const lastName = event.target.lastName.value;
-  //   const mobile = event.target.mobile.value;
-
-  //   createUserWithEmailAndPassword(email, password);
-  // };
+  //create user with email and password filling up the form
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const { email, firstName, lastName, mobile, password } = data;
+    const emailAddress = email;
+    const firstNameData = firstName;
+    const passWord = password;
+    const lastNameData = lastName;
+    const mobileData = mobile;
+    // console.log(
+    //   data,
+    //   emailAddress,
+    //   firstNameData,
+    //   passWord,
+    //   lastNameData,
+    //   mobileData
+    // );
+    createUserWithEmailAndPassword(emailAddress, passWord);
+  };
 
   return (
     <ThemeProvider theme={theme}>
