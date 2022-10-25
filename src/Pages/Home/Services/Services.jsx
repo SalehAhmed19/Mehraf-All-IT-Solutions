@@ -3,7 +3,7 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
-import { Button, CardCover, IconButton } from "@mui/joy";
+import { Avatar, Button, CardCover, IconButton, Link } from "@mui/joy";
 import graphicDesign from "../../../Assets/images/graphicdesign.png";
 import webDevelopment from "../../../Assets/images/webdevelopment.png";
 import digitalMarketing from "../../../Assets/images/digitalmarketing.png";
@@ -14,6 +14,7 @@ import CodeOffIcon from "@mui/icons-material/CodeOff";
 import PaletteIcon from "@mui/icons-material/Palette";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import InsightsIcon from "@mui/icons-material/Insights";
+import "./Services.css";
 
 const Services = () => {
   const data = [
@@ -64,7 +65,7 @@ const Services = () => {
         color: "#0071e8",
       }}
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <h2 className="text-2xl lg:text-4xl font-bold text-center py-5">
           See what we can do for you?
           {/* <div
@@ -76,78 +77,62 @@ const Services = () => {
           Choose the best service from us. We can do what you need.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-24 lg:mx-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 lg:mx-40">
         {data.map((d) => (
           <Zoom>
             <Card
               sx={{
-                bgcolor: "initial",
-                boxShadow: "none",
-                "--Card-padding": "0px",
+                width: 280,
+                boxShadow: "2px 0px 11px 0px rgba(133,133,133,0.65)",
+                color: "#5E3091",
+                margin: "0 auto",
               }}
             >
-              <Box sx={{ position: "relative" }}>
-                <AspectRatio ratio="4/3">
-                  <figure>
-                    <img src={d.img} alt="" />
-                  </figure>
-                </AspectRatio>
-                <CardCover
-                  className="gradient-cover"
+              <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+                <img src={d.img} loading="lazy" alt="" />
+              </AspectRatio>
+              <Box sx={{ display: "flex" }}>
+                {/* <div>
+                  <Typography level="body3">Total price:</Typography>
+                  <Typography fontSize="lg" fontWeight="lg">
+                    $2,900
+                  </Typography>
+                </div> */}
+                {/* <Button
+                  variant="solid"
+                  size="sm"
+                  aria-label="Explore Bahamas Islands"
                   sx={{
-                    "&:hover, &:focus-within": {
-                      opacity: 1,
-                    },
-                    opacity: 0,
-                    transition: "0.1s ease-in",
-                    background:
-                      "linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.00345888) 63.94%, rgba(0,0,0,0.014204) 65.89%, rgba(0,0,0,0.0326639) 67.83%, rgba(0,0,0,0.0589645) 69.78%, rgba(0,0,0,0.0927099) 71.72%, rgba(0,0,0,0.132754) 73.67%, rgba(0,0,0,0.177076) 75.61%, rgba(0,0,0,0.222924) 77.56%, rgba(0,0,0,0.267246) 79.5%, rgba(0,0,0,0.30729) 81.44%, rgba(0,0,0,0.341035) 83.39%, rgba(0,0,0,0.367336) 85.33%, rgba(0,0,0,0.385796) 87.28%, rgba(0,0,0,0.396541) 89.22%, rgba(0,0,0,0.4) 91.17%)",
+                    ml: "auto",
+                    fontWeight: 600,
+                    margin: "0 auto",
+                    backgroundColor: "#0171E8",
+                    color: "#fff",
                   }}
                 >
-                  {/* The first box acts as a container that inherits style from the CardCover */}
-                  <Box>
-                    <Box
-                      sx={{
-                        p: 2,
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: 1.5,
-                        flexGrow: 1,
-                        alignSelf: "flex-end",
-                      }}
-                    >
-                      {/* <Typography level="h2" noWrap sx={{ fontSize: "lg" }}>
-                    <Link
-                      href="#dribbble-shot"
-                      overlay
-                      underline="none"
-                      sx={{
-                        color: "#fff",
-                        textOverflow: "ellipsis",
-                        overflow: "hidden",
-                        display: "block",
-                      }}
-                    >
-                      {d.title}
-                    </Link>
-                  </Typography> */}
-                    </Box>
-                  </Box>
-                </CardCover>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 1,
-                  mt: 1.5,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography sx={{ fontSize: "lg", fontWeight: "lg" }}>
+                  Explore
+                </Button> */}
+                <Typography
+                  level="h2"
+                  fontSize="md"
+                  sx={{ mb: 0.5, fontWeight: 800 }}
+                >
                   {d.title}
                 </Typography>
+                <IconButton
+                  aria-label="bookmark Bahamas Islands"
+                  // variant="plain"
+                  color="neutral"
+                  size="sm"
+                  sx={{
+                    position: "absolute",
+                    bottom: "0.5rem",
+                    right: "0.5rem",
+                    color: "#1876D1",
+                  }}
+                >
+                  {d.icon}
+                </IconButton>
               </Box>
             </Card>
           </Zoom>
