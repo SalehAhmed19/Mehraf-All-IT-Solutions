@@ -12,13 +12,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Modal from "@mui/material/Modal";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSendPasswordResetEmail,
-} from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import { useForm } from "react-hook-form";
+import { useForm, watch } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Dialog,
@@ -30,18 +26,6 @@ import {
 import Loading from "../../../Shared/Loading/Loading";
 import { toast } from "react-toastify";
 
-//terms and conditions modal style
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 function Copyright(props) {
   return (
     <Typography
@@ -67,6 +51,8 @@ const theme = createTheme({
 export default function SignUp() {
   const [open, setOpen] = React.useState(false);
   const [acceptTnc, setAcceptTnc] = React.useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = React.useState("");
+  const [checked, setchecked] = React.useState("");
   const navigate = useNavigate();
   const handleClickOpen = () => {
     setOpen(true);
@@ -97,6 +83,7 @@ export default function SignUp() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -116,6 +103,8 @@ export default function SignUp() {
     // );
     createUserWithEmailAndPassword(emailAddress, passWord);
   };
+
+  console.log(watch());
 
   return (
     <ThemeProvider theme={theme}>
@@ -152,15 +141,10 @@ export default function SignUp() {
                       {...register("firstName", {
                         required: true,
                       })}
-                      // onChange={(e) => setFirstName(e.target.value)}
-                      // helperText={!firstName ? "Required" : ""}
-                      // error={!firstName}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                      // error={!lastName}
-                      // onChange={(e) => setLastName(e.target.value)}
                       fullWidth
                       id="lastName"
                       label="Last Name"
@@ -178,10 +162,6 @@ export default function SignUp() {
                       label="Email Address"
                       name="email"
                       autoComplete="email"
-                      // // helperText={!email ? "Required" : ""}
-                      // error={!email}
-                      // onChange={(e) => setEmail(e.target.value)}
-
                       required
                       fullWidth
                       {...register("email", {
@@ -203,23 +183,43 @@ export default function SignUp() {
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField
-                      // error={!mobile}
-                      // onChange={(e) => setMobile(e.target.value)}
-                      fullWidth
-                      id="mobile"
-                      type="number"
-                      label="Mobile number"
-                      name="mobile"
-                      autoComplete="off"
-                      {...register("mobile", {
-                        required: true,
-                        minLength: {
-                          value: 11,
-                          message: "error message",
-                        },
-                      })}
-                    />
+                    <div className="flex">
+                      {" "}
+                      <TextField
+                        sx={{
+                          boxShadow: "none",
+                          ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                          backgroundColor: "#D9DEE8",
+                        }}
+                        className="w-20 "
+                        margin="normal"
+                        required
+                        disabled
+                        id="phone"
+                        name="phone"
+                        value="+880"
+                        autoFocus
+                      />
+                      <TextField
+                        sx={{ marginLeft: "2px" }}
+                        className="w-full"
+                        margin="normal"
+                        required
+                        id="mobile"
+                        type="number"
+                        label="Mobile number"
+                        name="mobile"
+                        autoComplete="off"
+                        {...register("mobile", {
+                          required: true,
+                          minLength: {
+                            value: 10,
+                            message: "error message",
+                          },
+                        })}
+                      />
+                    </div>
+
                     <Typography
                       component="p"
                       color="error"
@@ -240,8 +240,6 @@ export default function SignUp() {
                       label="Password"
                       id="password"
                       autoComplete="new-password"
-                      // error={!password}
-                      // onChange={(e) => setPassword(e.target.value)}
                       {...register("password", {
                         required: true,
                         minLength: {
@@ -275,11 +273,31 @@ export default function SignUp() {
                       type="password"
                       id="confirmPassword"
                       autoComplete="confirmPassword"
+                      {...register("confirmPassword", {
+                        required: true,
+                        validate: (val) => {
+                          if (watch("password") != val) {
+                            setConfirmPasswordError(
+                              "Your passwords do no match"
+                            );
+                          } else if (watch("password") == val) {
+                            setchecked("password matched");
+                          }
+                        },
+                      })}
                     />
                   </Grid>
+                  <Typography
+                    variant="body1"
+                    component="div"
+                    color="error"
+                    sx={{ marginTop: ".5rem", marginLeft: "2rem" }}
+                  >
+                    {confirmPasswordError}
+                  </Typography>
                   <Grid item xs={12}>
                     {" "}
-                    <Grid container>
+                    {/* <Grid container>
                       <Grid item xs={1}>
                         <FormControlLabel
                           control={
@@ -316,9 +334,9 @@ export default function SignUp() {
                           </DialogActions>
                         </Dialog>
                       </Grid>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
-                  {acceptTnc ? (
+                  {/* {acceptTnc ? (
                     //  <input type="submit" />
                     <Button
                       type="submit"
@@ -338,7 +356,15 @@ export default function SignUp() {
                     >
                       Sign Up
                     </Button>
-                  )}
+                  )} */}
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign Up
+                  </Button>
                 </Grid>
 
                 <Grid container justifyContent="flex-end">
