@@ -15,13 +15,14 @@ import PaletteIcon from "@mui/icons-material/Palette";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import InsightsIcon from "@mui/icons-material/Insights";
 import "./Services.css";
+import { Divider } from "@mui/material";
 
 const Services = () => {
   const data = [
     {
       _id: 1,
       title: "Graphics Design",
-      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      des: "Plans and illustrates concepts by designing rough layouts of art and copy regarding arrangement, size, type size and style, and related aesthetics. ",
       img: graphicDesign,
       route: "/graphic-design",
       icon: <PaletteIcon />,
@@ -29,7 +30,7 @@ const Services = () => {
     {
       _id: 2,
       title: "Web Development",
-      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      des: "Builds, designs, and maintains all websites and software applications",
       img: webDevelopment,
       route: "/web-development",
       icon: <CodeOffIcon />,
@@ -37,7 +38,7 @@ const Services = () => {
     {
       _id: 3,
       title: "Video & Animation",
-      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      des: "Video editors manipulate film and video footage to create a coherent and complete project that accurately depicts the film directors envision.",
       img: videoEditing,
       route: "/video-animation",
       icon: <MovieFilterIcon />,
@@ -45,7 +46,7 @@ const Services = () => {
     {
       _id: 4,
       title: "Digital Marketing",
-      des: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      des: "Plans and executes all web, SEO/SEM, database marketing, email, social media, and display advertising campaigns.",
       img: digitalMarketing,
       route: "/digital-marketing",
       icon: <InsightsIcon />,
@@ -58,15 +59,12 @@ const Services = () => {
   //     .then((data) => setServices(data));
   // }, [services]);
   return (
-    <div
-      id="services"
-      className="my-20"
-      style={{
-        color: "#0071e8",
-      }}
-    >
+    <div id="services" className="my-20">
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center py-5">
+        <h2
+          style={{ color: "#444" }}
+          className="text-2xl lg:text-4xl font-bold text-center py-5"
+        >
           See what we can do for you?
           {/* <div
             style={{ background: "#0071e8" }}
@@ -77,21 +75,39 @@ const Services = () => {
           Choose the best service from us. We can do what you need.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 lg:mx-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-20 lg:mx-40">
         {data.map((d) => (
           <Zoom>
             <Card
+              className="card-hover"
               sx={{
                 width: 280,
-                boxShadow: "2px 0px 11px 0px rgba(133,133,133,0.65)",
                 color: "#5E3091",
                 margin: "0 auto",
               }}
             >
-              <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+              <div className="p-2 bg-white rounded-full w-16 mx-auto mb-3">
+                <IconButton
+                  aria-label="bookmark Bahamas Islands"
+                  // variant="plain"
+                  color="neutral"
+                  size="lg"
+                  sx={{ color: "#5E3091" }}
+                >
+                  {d.icon}
+                </IconButton>
+              </div>
+              <Divider className="divide" />
+              {/* <AspectRatio minHeight="180px" maxHeight="280px" sx={{ my: 2 }}>
                 <img src={d.img} loading="lazy" alt="" />
-              </AspectRatio>
-              <Box sx={{ display: "flex" }}>
+              </AspectRatio> */}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  margin: "20px 0",
+                }}
+              >
                 {/* <div>
                   <Typography level="body3">Total price:</Typography>
                   <Typography fontSize="lg" fontWeight="lg">
@@ -114,30 +130,37 @@ const Services = () => {
                 </Button> */}
                 <Typography
                   level="h2"
-                  fontSize="md"
+                  fontSize="lg"
                   sx={{ mb: 0.5, fontWeight: 800 }}
                 >
                   {d.title}
                 </Typography>
-                <IconButton
+                {/* <IconButton
                   aria-label="bookmark Bahamas Islands"
                   // variant="plain"
                   color="neutral"
                   size="sm"
-                  sx={{
-                    position: "absolute",
-                    bottom: "0.5rem",
-                    right: "0.5rem",
-                    color: "#1876D1",
-                  }}
+                  // sx={{
+                  //   position: "absolute",
+                  //   bottom: "0.5rem",
+                  //   right: "0.5rem",
+                  // }}
                 >
                   {d.icon}
-                </IconButton>
+                </IconButton> */}
               </Box>
+              <Divider className="divide" />
+              <Typography
+                className="py-4"
+                level="p"
+                fontSize="sm"
+                sx={{ mb: 0.5, textAlign: "center", fontWeight: 500 }}
+              >
+                {d.des.slice(0, 69) + "..."}
+              </Typography>
             </Card>
           </Zoom>
         ))}
-        <div></div>
       </div>
     </div>
   );
