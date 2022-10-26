@@ -36,15 +36,15 @@ const pages = [
   },
   {
     _id: 3,
-    name: "Contact",
-    route: "/contact",
-    href: "#contact",
-  },
-  {
-    _id: 4,
     name: "FAQ",
     route: "/faq",
     href: "#faq",
+  },
+  {
+    _id: 4,
+    name: "Contact",
+    route: "/contact",
+    href: "#contact",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
