@@ -22,7 +22,9 @@ const Banner = () => {
                 }}
               />
             </h1>
-            <p className="py-3">Choose the best IT services from here.</p>
+            <p style={{ color: "#444", fontWeight: 500 }} className="py-3">
+              Choose the best IT services from here.
+            </p>
             <button
               style={{ color: "#0071e8" }}
               className="btn glass hover:bg-blue-200"
