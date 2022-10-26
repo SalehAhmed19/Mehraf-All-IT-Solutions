@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import { Box } from "@mui/material";
 import { Fade } from "react-reveal";
+import { ExpandMore } from "@mui/icons-material";
 
 export default function Faq() {
   const [expanded, setExpanded] = React.useState(false);
@@ -36,14 +37,13 @@ export default function Faq() {
           <Box sx={{ marginLeft: "9rem", marginRight: "9rem" }}>
             {" "}
             <Accordion
-              style={{ boxShadow: "none" }}
-              sx={{ outline: "none", padding: "1.5rem" }}
+              sx={{ padding: "1.5rem" }}
               disableGutters
               expanded={expanded === "panel1"}
               onChange={handleChange("panel1")}
             >
               <AccordionSummary
-                expandIcon={expanded ? <MinimizeIcon /> : <AddIcon />}
+                expandIcon={<ExpandMore />}
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
@@ -69,14 +69,13 @@ export default function Faq() {
               </AccordionDetails>
             </Accordion>
             <Accordion
-              style={{ boxShadow: "none" }}
-              sx={{ outline: "none", padding: "1.5rem" }}
+              sx={{ padding: "1.5rem" }}
               disableGutters
               expanded={expanded === "panel2"}
               onChange={handleChange("panel2")}
             >
               <AccordionSummary
-                expandIcon={expanded ? <MinimizeIcon /> : <AddIcon />}
+                expandIcon={<ExpandMore />}
                 aria-controls="panel2bh-content"
                 id="panel2bh-header"
               >
@@ -100,14 +99,13 @@ export default function Faq() {
               </AccordionDetails>
             </Accordion>
             <Accordion
-              style={{ boxShadow: "none" }}
-              sx={{ outline: "none", padding: "1.5rem" }}
+              sx={{ padding: "1.5rem" }}
               disableGutters
               expanded={expanded === "panel3"}
               onChange={handleChange("panel3")}
             >
               <AccordionSummary
-                expandIcon={expanded ? <MinimizeIcon /> : <AddIcon />}
+                expandIcon={<ExpandMore />}
                 aria-controls="panel3bh-content"
                 id="panel3bh-header"
               >
@@ -135,14 +133,13 @@ export default function Faq() {
               </AccordionDetails>
             </Accordion>
             <Accordion
-              style={{ boxShadow: "none" }}
-              sx={{ outline: "none", padding: "1.5rem" }}
+              sx={{ padding: "1.5rem" }}
               disableGutters
               expanded={expanded === "panel4"}
               onChange={handleChange("panel4")}
             >
               <AccordionSummary
-                expandIcon={expanded ? <MinimizeIcon /> : <AddIcon />}
+                expandIcon={<ExpandMore />}
                 aria-controls="panel4bh-content"
                 id="panel4bh-header"
               >
