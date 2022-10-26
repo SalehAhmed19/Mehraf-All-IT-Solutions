@@ -60,7 +60,7 @@ const Services = () => {
   // }, [services]);
   return (
     <div id="services" className="my-20">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center pb-10">
         <h2
           style={{ color: "#444" }}
           className="text-2xl lg:text-4xl font-bold text-center py-5"
@@ -75,7 +75,7 @@ const Services = () => {
           Choose the best service from us. We can do what you need.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-10 mx-20 lg:mx-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-20 lg:gap-10 mx-10 lg:mx-40">
         {data.map((d) => (
           <Zoom>
             <Card
@@ -87,11 +87,14 @@ const Services = () => {
                 backgroundColor: "#F7F7F7",
               }}
             >
-              <div className="p-2 bg-white rounded-full w-16 mx-auto mb-3">
+              <div
+                className="p-2 bg-white border-2 rounded-full w-18 mx-auto mb-3"
+                style={{ marginTop: "-50px" }}
+              >
                 <IconButton
                   aria-label="bookmark Bahamas Islands"
                   // variant="plain"
-                  color="neutral"
+                  // color="neutral"
                   size="lg"
                   sx={{ color: "#5E3091" }}
                 >
