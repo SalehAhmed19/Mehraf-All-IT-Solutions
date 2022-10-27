@@ -1,21 +1,14 @@
 import React from "react";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Box from "@mui/joy/Box";
-import Card from "@mui/joy/Card";
-import Typography from "@mui/joy/Typography";
-import { Avatar, Button, CardCover, IconButton, Link } from "@mui/joy";
 import graphicDesign from "../../../Assets/images/graphicdesign.png";
 import webDevelopment from "../../../Assets/images/webdevelopment.png";
 import digitalMarketing from "../../../Assets/images/digitalmarketing.png";
 import videoEditing from "../../../Assets/images/videoediting.png";
 import { Zoom } from "react-reveal";
-import { BookmarkAdd } from "@mui/icons-material";
 import CodeOffIcon from "@mui/icons-material/CodeOff";
 import PaletteIcon from "@mui/icons-material/Palette";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import InsightsIcon from "@mui/icons-material/Insights";
 import "./Services.css";
-import { Divider } from "@mui/material";
 import ServiceCard from "../../../Components/ServiceCard/ServiceCard";
 
 const Services = () => {

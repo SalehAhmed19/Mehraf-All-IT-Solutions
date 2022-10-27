@@ -10,17 +10,12 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo.png";
-import SearchBar from "./SearchBar";
-import AppDrawer from "../../Pages/Home/AppDrawer/AppDrawer";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Button } from "@mui/material";
-import { toast } from "react-toastify";
 const pages = [
   {
     _id: 1,
