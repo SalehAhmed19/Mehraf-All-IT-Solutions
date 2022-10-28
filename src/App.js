@@ -15,18 +15,23 @@ import "react-toastify/dist/ReactToastify.css";
 import Contact from "./Pages/Contact/Contact";
 import MobileAuth from "./Pages/MobileAuth/MobileAuth";
 import AnimatedCursor from "react-animated-cursor";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 
 function App() {
   return (
     <div className="App" style={{ color: "#333333", cursor: "auto" }}>
       <div className="z-10"></div>
-      <FloatingWhatsApp
+      {/* <FloatingWhatsApp
         phoneNumber="+8801773120528"
         accountName="Mehraf All IT Solutions"
         allowEsc
         allowClickAway
         notification
         notificationSound
+      /> */}
+      <MessengerCustomerChat
+        pageId={process.env.REACT_APP_FB_PAGE_ID}
+        appId={process.env.REACT_APP_FB_APP_ID}
       />
       <Navbar />
       <Routes>

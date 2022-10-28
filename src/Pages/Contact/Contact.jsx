@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import { Fade } from "react-reveal";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 
 const Contact = () => {
   const [user] = useAuthState(auth);
@@ -113,3 +114,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+// 110097513674883
