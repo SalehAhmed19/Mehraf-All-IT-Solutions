@@ -18,7 +18,7 @@ export default function Faq() {
 
   return (
     <div id="faq" className="my-28">
-      <Box className="lg:ml-28  lg:mr-28 ml-6 mr-6" >
+      <Box className="lg:ml-28  lg:mr-28 ml-6 mr-6">
         <Fade left>
           <Typography
             variant="h4"
@@ -34,7 +34,7 @@ export default function Faq() {
           </Typography>
         </Fade>
         <Fade right>
-          <Box >
+          <Box>
             {" "}
             <Accordion
               sx={{ padding: "1.5rem" }}
@@ -83,18 +83,24 @@ export default function Faq() {
                   variant="h6"
                   sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
                 >
-                  Are The Prebuilt Websites Fully Customizable?
+                  What Advantages Customer Can Get Working With{" "}
+                  <Typography
+                    variant="h6"
+                    component="span"
+                    color="primary"
+                    sx={{ fontWeight: 900 }}
+                  >
+                    MEHRAF?
+                  </Typography>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Yes, each prebuilt website is 100% customizable. All prebuilt
-                  websites are professionally designed by our in-house design
-                  team, created to showcase Avada’s capabilities and save you
-                  time. Once you import a prebuilt website, you can entirely
-                  customize the content and layouts to your liking. You can add
-                  your own imagery, change text, change colors or completely
-                  change any of the layouts using the Avada Website Builder.
+                  Our ethics are pretty basic. "Customer first in whatever we
+                  do" is the motto. When you choose us, you are not merely
+                  selecting a medium to obtain a remedy. Actually, you're
+                  getting a partner who cares as much about your success as we
+                  do.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -113,22 +119,16 @@ export default function Faq() {
                   variant="h6"
                   sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
                 >
-                  Why Should I Trust{" "}
-                  <Typography
-                    variant="h6"
-                    component="span"
-                    color="primary"
-                    sx={{ fontWeight: 900 }}
-                  >
-                    Mehraf All IT ?
-                  </Typography>
+                  Where Can I See Your Work?
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Trust is a quality that we take great care to foster and
-                  maintain by building long-term professional relationships that
-                  our customers can rely on. Here are some important qualifiers:
+                  You may easily access our Services pages to learn more about
+                  our products (you'll find this option in our menu).
+                  Additionally, you are free to contact us via email at
+                  mehraf.ais@gmail.com. For a demo or any questions, you can
+                  also phone us at +88 017 73 12 05 28.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -147,16 +147,28 @@ export default function Faq() {
                   variant="h6"
                   sx={{ width: "100%", flexShrink: 0, fontWeight: 900 }}
                 >
-                  What Is Included With My Purchase Of Mehraf?
+                  Why Choose{" "}
+                  <Typography
+                    variant="h6"
+                    component="span"
+                    color="primary"
+                    sx={{ fontWeight: 900 }}
+                  >
+                    MEHRAF
+                  </Typography>{" "}
+                  Over The Garments IT Company?
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  necessitatibus adipisci voluptatum iusto, placeat inventore
-                  consectetur natus saepe similique corrupti quos ipsam
-                  reprehenderit a, molestias optio, facilis mollitia cumque
-                  aliquam.
+                  Every customer is treated as a business partner, and we work
+                  with them to articulate their needs while fully comprehending
+                  them, face their obstacles, and offer them precise solutions
+                  while executing features on schedule. You'll have the
+                  impression that you are our only customer, that no problem is
+                  too large or too minor, that we are always available to you
+                  whenever you need us, and that your needs are our top concern.
+                  Yes, also! Your budget is important to us.
                 </Typography>
               </AccordionDetails>
             </Accordion>
