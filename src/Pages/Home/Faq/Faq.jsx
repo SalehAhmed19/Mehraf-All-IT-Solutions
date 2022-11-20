@@ -3,8 +3,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
-import AddIcon from "@mui/icons-material/Add";
-import MinimizeIcon from "@mui/icons-material/Minimize";
 import { Box } from "@mui/material";
 import { Fade } from "react-reveal";
 import { ExpandMore } from "@mui/icons-material";

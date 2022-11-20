@@ -10,6 +10,7 @@ import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import InsightsIcon from "@mui/icons-material/Insights";
 import "./Services.css";
 import ServiceCard from "../../../Components/ServiceCard/ServiceCard";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const data = [
@@ -62,7 +63,9 @@ const Services = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-20 lg:gap-10 mx-10 lg:mx-40">
         {data.map((d) => (
           <Zoom>
-            <ServiceCard key={d._id} service={d} />
+            <Link to={d.route}>
+              <ServiceCard key={d._id} service={d} />
+            </Link>
           </Zoom>
         ))}
       </div>
