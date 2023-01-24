@@ -69,13 +69,13 @@ function PricingContent() {
         >
           <div className="flex flex-col items-center">
             <h1
-              style={{ color: "#f49b00" }}
+              style={{ color: "#0071e8" }}
               className="text-4xl font-bold text-center py-5"
             >
               Pricing
             </h1>
             <div
-              style={{ background: "#f49b00" }}
+              style={{ background: "#0071e8" }}
               className="h-1 w-36 rounded"
             ></div>
           </div>
